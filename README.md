@@ -1,6 +1,26 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones.
 
+## Mittwoch 23.2.2022
+
+Heute beschäftigten wir uns mit der Installation von allem, was man zur Entwicklung einer Smartphone-App braucht. Die [Android Studio Präsentation (PPTX⇓)](AndroidStudio.pptx) erklärt die einzelnen Schritte.
+
+Die Downloads haben wir bereits erledigt und auf einem USB Stick zur Verfügung gestellt:
+
+* Java SDK (JDK) namens [Amazon Corretto](https://aws.amazon.com/de/corretto/)
+* [Android Studio](https://developer.android.com/studio)
+* das Flutter-Plugin für Android Studio (Download innerhalb von Android Studio)
+* [Flutter](https://docs.flutter.dev/get-started/install/windows)
+* Emulator / virtuelle Geräte (Download innerhalb von Android Studio)
+
+Nach einer dreistündigen Installationsorgie blieb noch etwas Zeit für die ersten Beispiele mit der Programmiersprache [Dart (PPTX⇓)](Dart.pptx). Wir kamen bis Folie 17.
+
+Hausaufgaben:
+
+* Anmeldung im Discord abschließen
+* freiwillig: Wiederholung der Installation auf dem eigenen Rechner daheim
+* freiwillig: Programmierung eines Hello World Beispiels
+
 ## Mittwoch 16.2.2022
 
 In der Vorstellungsrunde haben wir erfahren, dass mehrere Teilnehmer bereits erste Programmiererfahrung mit dem Arduino gemacht haben. Beim Rundgang durch die derzeit recht leere Firma haben wir die Örtlichkeiten kennengelernt. Im Anschluss haben wir Laptops in Betrieb genommen. 
