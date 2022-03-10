@@ -1,6 +1,33 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones.
 
+## Mittwoch 9.3.2022
+
+Wir haben uns weiter mit der Programmiersprache [Dart (PPTX⇓)](Dart.pptx) beschäftigt und dort die Kapitel
+
+* Strings
+* Wiederholungen
+* Wahrheitswerte
+* Verzweigungen
+
+durchgearbeitet. Wir sind bis Folie 37 gekommen.
+
+Für ein paar Aufgaben stellen wir Euch eine mögliche Lösung auf DartPad vor:
+
+- [Lösung Übung 1](https://dartpad.dev/?id=bc2ccef0f3caaa3444577838340cb746&null_safety=true): Berechne 356*4³
+- [Lösung Übung 2](https://dartpad.dev/?id=600212c3180ea97c91c25899fe08fe32&null_safety=true): 36² -> WXYZ -> XY -> XY²
+- Aufgabe 3: Wie viele Zahlen zwischen 100 und 999 enthalten die Ziffer 3?
+  - [textuelle Lösung mit `.substring()`](https://dartpad.dev/?id=e7cf8b4b3136d8e34531d672d342a65d&null_safety=true)
+  - [textuelle Lösung mit `.contains()`](https://dartpad.dev/?id=275d13381ca893879be2b6f6b82559e2&null_safety=true)
+  - [mathematischer Ansatz explizit für jede Stelle einzeln](https://dartpad.dev/?id=e3d80e324549714017110f64f301fcef&null_safety=true)
+  - [mathematischer Ansatz von hinten her](https://dartpad.dev/?id=f2be1413b7d7b839a8ce1e1df04ea7dd&null_safety=true)
+  - [mathematischer Ansatz von vorne her](https://dartpad.dev/?id=79ece0ba0264cb39c437984a0b63202b&null_safety=true)
+
+Hausaufgaben:
+
+* freiwillig: Wiederholung der Android Studio Installation auf dem eigenen Rechner daheim
+* freiwillig: Aufgaben nochmal nachvollziehen, Lösung vereinfachen oder verbessern
+
 ## Mittwoch 23.2.2022
 
 Heute beschäftigten wir uns mit der Installation von allem, was man zur Entwicklung einer Smartphone-App braucht. Die [Android Studio Präsentation (PPTX⇓)](AndroidStudio.pptx) erklärt die einzelnen Schritte.
