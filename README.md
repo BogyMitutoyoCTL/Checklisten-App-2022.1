@@ -1,5 +1,5 @@
 # Checklisten-App-2022.1
-Checklisten erstellen und ausfüllen mit einer App für Smartphones.
+Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
 ## Mittwoch 9.3.2022
 
