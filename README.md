@@ -25,8 +25,8 @@ Für ein paar Aufgaben stellen wir Euch eine mögliche Lösung auf DartPad vor:
 
 Hausaufgaben:
 
-* freiwillig: Wiederholung der Android Studio Installation auf dem eigenen Rechner daheim
-* freiwillig: Aufgaben nochmal nachvollziehen, Lösung vereinfachen oder verbessern
+* freiwillig: Wiederholung der Android Studio Installation auf dem eigenen Rechner daheim.
+* freiwillig: Aufgaben nochmal nachvollziehen, Lösung vereinfachen oder verbessern.
 
 ## Mittwoch 23.2.2022
 
