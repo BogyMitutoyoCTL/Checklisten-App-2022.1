@@ -1,6 +1,25 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones.
 
+## Mittwoch 16.3.2022
+
+Wir haben die Lösung der Aufgabe von letztem Mal besprochen und dabei Funktionen des Debuggers kennengelernt (Breakpoints, Variableninspektion, ...). Danach haben wir uns die Programmiersprache [Dart (PPTX⇓)](Dart.pptx) weiter zu Gemüte geführt und die Kapitel 
+
+* Listen
+* Maps (Dictionaries)
+* Methoden
+* Funktionen
+
+bearbeitet. Die Aufgaben auf Folie 51 und 52 haben wir noch gelöst.
+
+Aufgabe: Programmiere eine Funktion, die das gleiche Ergebnis liefert wie math.pow()
+
+* [Lösung](https://dartpad.dev/?id=acf8e4c4c1a098d7fd1fa34011174558)
+
+Aufgabe: Schreibe eine Funktion, die aus einer Liste mit Zahlen die kleinste heraussucht.
+
+* [Lösung](https://dartpad.dev/?id=f031adea08afe8c848cc6cc9a885c9a0)
+
 ## Mittwoch 9.3.2022
 
 Wir haben uns weiter mit der Programmiersprache [Dart (PPTX⇓)](Dart.pptx) beschäftigt und dort die Kapitel
