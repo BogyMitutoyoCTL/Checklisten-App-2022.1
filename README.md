@@ -1,6 +1,22 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Mittwoch 23.3.2022
+
+Weiter ging es mit der Programmiersprache [Dart (PPTX⇓)](Dart.pptx). Die Konzepte aus diesem Nachmittag brauchen wir für die Flutter Programmierung:
+
+* Named Arguments
+* Scope
+* Callbacks
+* Lambdas
+* Async / Await
+
+Wir haben uns bis Folie 79 durchgearbeitet.
+
+Hausaufgaben (freiwillig):
+
+* Programmier-Aufgaben bei [Codewars](https://www.codewars.com) lösen
+
 ## Mittwoch 16.3.2022
 
 Wir haben die Lösung der Aufgabe von letztem Mal besprochen und dabei Funktionen des Debuggers kennengelernt (Breakpoints, Variableninspektion, ...). Danach haben wir uns die Programmiersprache [Dart (PPTX⇓)](Dart.pptx) weiter zu Gemüte geführt und die Kapitel 
