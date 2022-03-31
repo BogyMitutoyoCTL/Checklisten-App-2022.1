@@ -1,6 +1,12 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Mittwoch 30.3.2022
+
+Wir haben den Nachmittag begonnen mit der Kata (Programmierübung) ["Is it a palindrome" bei Codewars](https://www.codewars.com/kata/57a1fd2ce298a731b20006a4).
+
+Im Anschluss sind wir die letzten Folien der [Dart (PPTX⇓)](Dart.pptx) Präsentation durchgegangen und haben die Objektorientierung behandelt. Damit haben wir die Programmiersprache ziemlich vollständig durchdrungen und können uns in der BOGY-Woche direkt mit der Programmierung einer Oberfläche beschäftigen.
+
 ## Mittwoch 23.3.2022
 
 Weiter ging es mit der Programmiersprache [Dart (PPTX⇓)](Dart.pptx). Die Konzepte aus diesem Nachmittag brauchen wir für die Flutter Programmierung:
