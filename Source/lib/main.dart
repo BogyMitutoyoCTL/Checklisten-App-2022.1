@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Language.dart';
+import 'package:voodoolist/SplashScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Language(),
+      home: Splashscreen(),
     );
   }
 }
