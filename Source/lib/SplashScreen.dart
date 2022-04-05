@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/ChooseTheme.dart';
+import 'package:voodoolist/Checklisten.dart';
 
 import 'CoundownTimer.dart';
 import 'Language.dart';
-
-var firststart = 0;
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -30,12 +28,15 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   void exitSplashScreen() {
-    if (firststart == 0) {
+    if (firststart == true) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Language()));
-    } else if (firststart > 0) {
+      firststart = false;
+    } else if (firststart == false) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     }
   }
 }
+
+var firststart = true;
