@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:voodoolist/ChooseTheme.dart';
 
 import 'CoundownTimer.dart';
 import 'Language.dart';
@@ -11,6 +14,11 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  Random random = new Random();
+  int randomNumber = 0;
+  _SplashscreenState() {
+    randomNumber = random.nextInt(11);
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,7 +35,12 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   void exitSplashScreen() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Language()));
+    if (randomNumber > 5) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Language()));
+    } else if (randomNumber < 5) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+    }
   }
 }
