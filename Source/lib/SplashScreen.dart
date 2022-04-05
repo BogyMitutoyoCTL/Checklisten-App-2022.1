@@ -14,6 +14,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image(
           image: AssetImage("assets/voodoopuppe.png"),
