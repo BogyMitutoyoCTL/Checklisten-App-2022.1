@@ -61,10 +61,9 @@ class _LanguageState extends State<Language> {
         ]),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        backgroundColor: Colors.white,
+        onPressed: () {},
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         foregroundColor: Colors.black54,
         child: const Icon(Icons.arrow_forward, size: 40),
       ),
