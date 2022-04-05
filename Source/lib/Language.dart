@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voodoolist/Checklisten.dart';
 
 import 'ChooseTheme.dart';
 
@@ -62,16 +63,32 @@ class _LanguageState extends State<Language> {
           ]),
         ]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
-        },
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black54,
-        child: const Icon(Icons.arrow_forward, size: 40),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Checklisten()));
+            },
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            foregroundColor: Colors.black54,
+            child: const Icon(Icons.arrow_back, size: 40),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+            },
+            elevation: 0,
+            backgroundColor: Colors.transparent,
+            foregroundColor: Colors.black54,
+            child: const Icon(Icons.arrow_forward, size: 40),
+          ),
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
