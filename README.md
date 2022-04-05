@@ -1,6 +1,14 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Montag, 4.4.2022
+
+Wir haben uns die Gestaltung von Android Apps mit Hilfe von [Flutter (PPTX⇓)](Flutter.pptx) angeschaut ein ein paar Beispiel-Oberflächen inklusive Navigation entwickelt. Wir haben uns auch noch ein wenig mit [Gestalt Principles (Wikipedia)](https://de.wikipedia.org/wiki/Gestaltpsychologie) beschäftigt und ein paar Beispiele besprochen:
+
+* Proximity (Gruppierung über Nähe bzw. Abstand)
+* Similarity (Ähnlichkeit, z.B. Farbe oder Form)
+* Continuity (Zusammenhang)
+
 ## Mittwoch 30.3.2022
 
 Wir haben den Nachmittag begonnen mit der Kata (Programmierübung) ["Is it a palindrome" bei Codewars](https://www.codewars.com/kata/57a1fd2ce298a731b20006a4).
