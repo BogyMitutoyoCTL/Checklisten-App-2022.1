@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'ChooseTheme.dart';
+
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
 
@@ -61,7 +63,10 @@ class _LanguageState extends State<Language> {
         ]),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+        },
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black54,
