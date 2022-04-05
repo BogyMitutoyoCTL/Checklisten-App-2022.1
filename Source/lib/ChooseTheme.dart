@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'First_Check.dart';
 
 class ChooseTheme extends StatefulWidget {
   const ChooseTheme({Key? key}) : super(key: key);
@@ -53,15 +54,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
   void onPressed() {
     //Theme-mode aendern
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => First_Check()));
-  }
-}
-
-class First_Check extends StatelessWidget {
-  const First_Check({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+        .push(MaterialPageRoute(builder: (context) => FirstCheck()));
   }
 }
