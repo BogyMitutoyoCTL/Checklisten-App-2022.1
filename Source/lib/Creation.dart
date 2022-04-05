@@ -9,19 +9,21 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
-  String eingegebenerText = "";
-  final TextEditingController _controller = TextEditingController();
+  List<TextField> textfields = [];
+  String checklistenName = "";
+  List<TextEditingController> controlers = [];
+  final TextEditingController _controller1 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller.text = eingegebenerText;
+    _controller1.text = checklistenName;
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller1.dispose();
   }
 
   @override
@@ -32,35 +34,46 @@ class _CreationState extends State<Creation> {
       ),
       body: Column(
         children: [
+          //////////////////////////////////////////////////////////////////////
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Name der Liste',
-              ),
-              controller: _controller,
-              onChanged: textGeaendert,
+            child: Column(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    /**/ border: OutlineInputBorder(),
+                    labelText: 'Name der Liste',
+                  ),
+                  controller: _controller1,
+                  onChanged: textGeaendert,
+                ),
+                FloatingActionButton(
+                  onPressed: neuerlistenteil,
+                  child: Icon(Icons.add_circle_outline),
+                ),
+              ],
             ),
-          ),
-          Text(eingegebenerText),
-          FloatingActionButton(
-            onPressed: neuerlistenteil,
-            child: Icon(Icons.add_circle_outline),
           ),
         ],
       ),
-      floatingActionButton:
-          FloatingActionButton(onPressed: save, child: Text("save/sichern!")),
+      floatingActionButton: FloatingActionButton(
+          onPressed: save, child: Icon(Icons.save_alt_outlined)),
     );
   }
 
-  void neuerlistenteil() {}
+  void neuerlistenteil() {
+    TextField(
+      decoration: InputDecoration(labelText: '1. Element'),
+      //controller: ...,
+      onChanged: elementGeandert,
+    );
+  }
 
   void save() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Checklisten()));
   }
-}
 
-void textGeaendert(String value) {}
+  void elementGeandert(String value) {}
+  void textGeaendert(String value) {}
+}
