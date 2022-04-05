@@ -68,6 +68,7 @@ class _LanguageState extends State<Language> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
+            heroTag: 'btn1',
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Checklisten()));
@@ -78,6 +79,7 @@ class _LanguageState extends State<Language> {
             child: const Icon(Icons.arrow_back, size: 40),
           ),
           FloatingActionButton(
+            heroTag: 'btn2',
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
