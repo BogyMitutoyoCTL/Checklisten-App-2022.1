@@ -19,6 +19,14 @@ class _LanguageState extends State<Language> {
     'German',
   ];
 
+  DropdownMenuItem convertStringToMenuItem(String item) {
+    return DropdownMenuItem(
+      value: item,
+      child: Text(item,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,17 +51,10 @@ class _LanguageState extends State<Language> {
                 icon: const Icon(Icons.keyboard_arrow_down),
 
                 // Array list of items
-                items: items.map((String items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(items,
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400)),
-                  );
-                }).toList(),
+                items: items.map(convertStringToMenuItem).toList(),
                 // After selecting the desired option,it will
                 // change button value to selected value
-                onChanged: (String? newValue) {
+                onChanged: (dynamic? newValue) {
                   setState(() {
                     dropdownvalue = newValue!;
                   });
@@ -67,6 +68,7 @@ class _LanguageState extends State<Language> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           FloatingActionButton(
+            heroTag: 'btn1',
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => Checklisten()));
@@ -77,6 +79,7 @@ class _LanguageState extends State<Language> {
             child: const Icon(Icons.arrow_back, size: 40),
           ),
           FloatingActionButton(
+            heroTag: 'btn2',
             onPressed: () {
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => ChooseTheme()));

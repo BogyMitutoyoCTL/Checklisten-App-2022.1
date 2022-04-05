@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:voodoolist/ChooseTheme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/Checklisten.dart';
 
 import 'CoundownTimer.dart';
 import 'Language.dart';
@@ -14,11 +13,15 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  Random random = new Random();
-  int randomNumber = 0;
-  _SplashscreenState() {
-    randomNumber = random.nextInt(11);
+  late SharedPreferences prefs;
+  var firststart = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadFile();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,12 +38,24 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   void exitSplashScreen() {
-    if (randomNumber > 5) {
+    if (firststart == true) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Language()));
-    } else if (randomNumber < 5) {
+      firststart = false;
+    } else if (firststart == false) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+    }
+  }
+
+  void loadFile() async {
+    prefs = await SharedPreferences.getInstance();
+    bool? eintrag = prefs.getBool("firststart");
+    if (eintrag == null) {
+      firststart = true;
+      prefs.setBool("firststart", false);
+    } else {
+      firststart = eintrag;
     }
   }
 }
