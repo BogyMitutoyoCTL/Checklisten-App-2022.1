@@ -16,12 +16,14 @@ class _First_CheckState extends State<FirstCheck> {
         body: Padding(
       padding:
           const EdgeInsets.fromLTRB(70, 300, 70, 80), //ToDO: Größe von Schrift
+////////////////////////////////////////////////////////////////////////////////
       child: ElevatedButton(
         onPressed: weiter,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(80, 70, 70, 80),
           child: Text(
             "Create your first checklist!", /* style: TextStyle(color: Colors.black)*/
+////////////////////////////////////////////////////////////////////////////////
           ),
         ),
         //style: ElevatedButton.styleFrom(primary: Colors.white),
