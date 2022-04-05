@@ -13,26 +13,18 @@ class _First_CheckState extends State<FirstCheck> {
   Widget build(BuildContext context) {
     return Scaffold(
         // appBar: AppBar(title: Text(""), backgroundColor: Colors.white),
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 300,
-              height: 300,
-              child: ElevatedButton(
-                onPressed: weiter,
-                child: Text(
-                  "Create your first checklist!", /* style: TextStyle(color: Colors.black)*/
-                ),
-                //style: ElevatedButton.styleFrom(primary: Colors.white),
-              ),
-            ),
-          ],
+        body: Center(
+      child: SizedBox(
+        width: 300,
+        height: 300,
+        child: ElevatedButton(
+          onPressed: weiter,
+          child: Text(
+            "Create your first checklist!", /* style: TextStyle(color: Colors.black)*/
+          ),
+          //style: ElevatedButton.styleFrom(primary: Colors.white),
         ),
-      ],
+      ),
     ));
   }
 
