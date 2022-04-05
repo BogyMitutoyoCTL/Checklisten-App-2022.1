@@ -1,6 +1,38 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Dienstag 5.4.2022
+
+Wir haben uns auf einen Namen für unsere App geeinigt: Voodoo-List.
+
+Unsere Prioritäten für die Umsetzung:
+
+* Icon und Name
+* übersichtliches Menü (neutraler Hintergrund)
+* Checklisten-Name (eintippen)
+* Dark Mode
+* Checklisten-Editor, evtl. mit tabellarischer Darstellung
+* mehrere Checklisten erstellen und verwalten
+* Fortschrittsanzeige 
+* Wiederholung einer Checkliste in einem bestimmten Intervall (täglich / wöchentlich)
+* Kalender: diese Checkliste brauche ich an diesem Tag / spezialisierter Kalender, Checkliste für einen Tag (Termine; Hausaufgaben)
+* Erinnerung an eine Checkliste oder einzelne Einträge davon
+* Checklisten miteinander verbinden (Checkliste in Checkliste; Ober-Checkliste mit Unter-Checklisten)
+* Übersetzung in mehrere Sprachen
+* Warnsystem für nicht ausgefüllte Checklisten
+* Hilfe-Funktion / Tutorial oder Einführung
+* Pro-Version: unbegrenzte Anzahl Listen und  Einträge
+  * Checkliste mit jemandem teilen / Checkliste an jemanden senden
+  * Handschrifterkennung
+  * Bilder an einen Checklisten-Eintrag anhängen
+* Gratisversion: nur eine Liste o.ä.
+* Werbung einblenden (könnte Beliebtheit reduzieren)
+* Geo-Fencing: Checkliste an einem bestimmten Ort aufrufen
+* Belohnungssystem / Prokrastinations-Modus
+* Sollte flott sein (reagiert in kurzer Zeit)
+* für mehrere Geräte (Smartphone, Tablet, Watch), Android und iOS
+  * Flutter macht das schon
+
 ## Montag, 4.4.2022
 
 Wir haben uns die Gestaltung von Android Apps mit Hilfe von [Flutter (PPTX⇓)](Flutter.pptx) angeschaut ein ein paar Beispiel-Oberflächen inklusive Navigation entwickelt. Wir haben uns auch noch ein wenig mit [Gestalt Principles (Wikipedia)](https://de.wikipedia.org/wiki/Gestaltpsychologie) beschäftigt und ein paar Beispiele besprochen:
