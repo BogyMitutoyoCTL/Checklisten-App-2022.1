@@ -15,38 +15,59 @@ class _ChooseThemeState extends State<ChooseTheme> {
         body: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            "Choose your theme:",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w100,
+        Padding(
+          padding: const EdgeInsets.only(left: 50, right: 50),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text(
+              "Choose your theme:",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w100,
+              ),
             ),
-          ),
-          //////////////////////////////////////////////////////////////////
-          ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                primary: Colors.black, // Background color
+            //////////////////////////////////////////////////////////////////
+            Center(
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                    onPressed: onPressed,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black, // Background color
+                    ),
+                    child: Text("Dark-Mode")),
               ),
-              child: Text("Dark-Mode")),
-          //////////////////////////////////////////////////////////////////
-          ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                primary: Colors.grey, // Background color
+            ),
+            //////////////////////////////////////////////////////////////////
+            Center(
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                    onPressed: onPressed,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey, // Background color
+                    ),
+                    child: Text("Light-Mode")),
               ),
-              child: Text("Light-Mode")),
-          //////////////////////////////////////////////////////////////////
-          ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue, // Background color
-                //Todo: -System-Mode Farbe anpassen ans System Theme
+            ),
+            //////////////////////////////////////////////////////////////////
+            Center(
+              child: SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                    onPressed: onPressed,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue, // Background color
+                      //Todo: -System-Mode Farbe anpassen ans System Theme
+                    ),
+                    child: Text("System-Mode")),
               ),
-              child: Text("System-Mode")),
-          //////////////////////////////////////////////////////////////////
-        ]),
+            ),
+            //////////////////////////////////////////////////////////////////
+          ]),
+        ),
       ],
     ));
   }
