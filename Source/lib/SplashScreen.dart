@@ -16,7 +16,7 @@ class _SplashscreenState extends State<Splashscreen> {
     return Column(
       children: [
         Image(
-          image: AssetImage("voodoopuppe.png"),
+          image: AssetImage("assets/voodoopuppe.png"),
 
           /* color: Colors.white,*/
         ),

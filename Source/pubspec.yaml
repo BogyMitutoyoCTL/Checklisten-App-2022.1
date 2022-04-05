@@ -53,7 +53,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/grau.png
-    - voodoopuppe.png
+    - assets/voodoopuppe.png
 
 
   # The following line ensures that the Material Icons font is
