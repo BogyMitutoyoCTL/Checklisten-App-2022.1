@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 
-class Splashscreen extends StatelessWidget {
+import 'CoundownTimer.dart';
+import 'Language.dart';
+
+class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Image(
-      image: AssetImage("voodoopuppe.png"),
+  State<Splashscreen> createState() => _SplashscreenState();
+}
 
-      /* color: Colors.white,*/
+class _SplashscreenState extends State<Splashscreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image(
+          image: AssetImage("voodoopuppe.png"),
+
+          /* color: Colors.white,*/
+        ),
+        CountDownTimer(whenTimeExpires: exitSplashScreen)
+      ],
     );
+  }
+
+  void exitSplashScreen() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Language()));
   }
 }
