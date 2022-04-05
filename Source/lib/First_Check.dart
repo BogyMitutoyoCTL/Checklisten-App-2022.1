@@ -17,10 +17,11 @@ class _First_CheckState extends State<FirstCheck> {
       padding: const EdgeInsets.fromLTRB(
           100, 350, 50, 50), //ToDO: Größe von Schrift und Button
       child: ElevatedButton(
-        onPressed: weiter,
-        /*child: Text("Create your first checklist!"),*/ child: Container(height: 80, width: ,)
-        // style: ElevatedButton.styleFrom(primary: Colors.white),
-      ),
+          onPressed: weiter,
+          /*child: Text("Create your first checklist!"),*/ child:
+              Container(height: 80, width: 80)
+          // style: ElevatedButton.styleFrom(primary: Colors.white),
+          ),
     ));
   }
 
