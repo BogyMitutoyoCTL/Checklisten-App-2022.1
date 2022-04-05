@@ -84,4 +84,3 @@ class _ChooseThemeState extends State<ChooseTheme> {
         .push(MaterialPageRoute(builder: (context) => FirstCheck()));
   }
 }
-
