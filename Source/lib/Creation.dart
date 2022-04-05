@@ -43,9 +43,15 @@ class _CreationState extends State<Creation> {
               ),
             ),
             Text(eingegebenerText),
+            FloatingActionButton(
+              onPressed: neuerlistenteil,
+              child: Icon(Icons.add_circle_outline),
+            )
           ],
         ));
   }
+
+  void neuerlistenteil() {}
 }
 
 void textGeaendert(String value) {}
