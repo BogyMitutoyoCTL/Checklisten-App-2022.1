@@ -97,6 +97,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter_icons:
   image_path: "web/icons/voodoopuppe.png"
-  adaptive_icon_background: "#000000"
+  adaptive_icon_background: "web/icons/black.png"
+  adaptive_icon_foreground: "web/icons/voodoopuppe.png"
   android: true
   ios: true
