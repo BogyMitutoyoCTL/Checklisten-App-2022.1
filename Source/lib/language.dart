@@ -57,16 +57,9 @@ class _LanguageState extends State<Language> {
                             fontWeight: FontWeight.w200, fontSize: 30)),
                   ),
                   DropdownButton(
-                    // Initial Value
                     value: dropdownvalue,
-
-                    // Down Arrow Icon
                     icon: const Icon(Icons.keyboard_arrow_down),
-
-                    // Array list of items
                     items: items.map(convertStringToMenuItem).toList(),
-                    // After selecting the desired option,it will
-                    // change button value to selected value
                     onChanged: (dynamic? newValue) {
                       setState(() {
                         dropdownvalue = newValue!;

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checklisten.dart';
-
-import 'first_check.dart';
-import 'RestartWidget.dart';
 import 'package:voodoolist/main.dart';
 import 'settings_switch.dart';
 
@@ -102,7 +99,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
     setState(() {
       themewahl = 0;
     });
-
     saveFile();
   }
 
@@ -110,7 +106,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
     setState(() {
       themewahl = 1;
     });
-
     saveFile();
   }
 
@@ -118,7 +113,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
     setState(() {
       themewahl = 2;
     });
-
     saveFile();
   }
 

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voodoolist/choose_theme.dart';
 import 'package:voodoolist/splash_screen.dart';
-import 'RestartWidget.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(RestartWidget(child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -34,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Voodoo Checklist',
+      title: 'Voodoo-List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
