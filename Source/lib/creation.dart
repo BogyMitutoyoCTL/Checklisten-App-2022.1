@@ -9,21 +9,23 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
+////////////////////////////////////////////////////////////////////////////////
   List<TextField> textfields = [];
   String checklistenName = "";
   List<TextEditingController> controlers = [];
-  final TextEditingController _controller1 = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller1.text = checklistenName;
+    _controller.text = checklistenName;
   }
 
+////////////////////////////////////////////////////////////////////////////////
   @override
   void dispose() {
     super.dispose();
-    _controller1.dispose();
+    _controller.dispose();
   }
 
   @override
@@ -44,7 +46,7 @@ class _CreationState extends State<Creation> {
                     /**/ border: OutlineInputBorder(),
                     hintText: 'Name der Liste',
                   ),
-                  controller: _controller1,
+                  controller: _controller,
                   onChanged: nameGeaendert,
                 ),
                 Text(checklistenName),
@@ -68,7 +70,7 @@ class _CreationState extends State<Creation> {
     setState(() {
       TextField(
         decoration: InputDecoration(labelText: '$n. Element'),
-        controller: _controller1,
+        controller: _controller,
         onChanged: elementGeandert,
       );
     });
@@ -82,7 +84,7 @@ class _CreationState extends State<Creation> {
   void elementGeandert(String value) {}
   void nameGeaendert(String value) {
     setState(() {
-      checklistenName = _controller1.text;
+      checklistenName = _controller.text;
     });
   }
 }
