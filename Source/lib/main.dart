@@ -35,8 +35,18 @@ class _MyAppState extends State<MyApp> {
       title: 'Voodoo-List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        textTheme: const TextTheme(
+          subtitle1: TextStyle(color: Colors.blue), //Textfarbe für die Textbox
+        ),
       ),
-      darkTheme: ThemeData(primarySwatch: Colors.red),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.red,
+        scaffoldBackgroundColor: const Color(0x000000FF),
+        textTheme: const TextTheme(
+          subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
+        ),
+      ),
       home: Splashscreen(),
       themeMode: themes[theme],
     );
