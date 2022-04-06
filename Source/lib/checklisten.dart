@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Settingswitch.dart';
-
-import 'Creation.dart';
+import 'settings_switch.dart';
+import 'creation.dart';
 
 class Checklisten extends StatefulWidget {
   const Checklisten({Key? key}) : super(key: key);
@@ -30,9 +29,9 @@ class _ChecklistenState extends State<Checklisten> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => Creation()));
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => Creation()));
         },
         child: Icon(Icons.add, size: 30),
         backgroundColor: Colors.white,

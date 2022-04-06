@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Settingswitch.dart';
-import 'Checklisten.dart';
-import 'First_Check.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'CoundownTimer.dart';
-import 'Language.dart';
+import 'settings_switch.dart';
+import 'first_check.dart';
 
 class ChooseTheme extends StatefulWidget {
   const ChooseTheme({Key? key}) : super(key: key);
@@ -102,10 +98,11 @@ class _ChooseThemeState extends State<ChooseTheme> {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => FirstCheck()));
     } else if (firststart == false) {
-      Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => Settingswitch()));
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
     }
   }
+
   void loadFile() async {
     prefs = await SharedPreferences.getInstance();
     bool? eintrag = prefs.getBool("firststart");

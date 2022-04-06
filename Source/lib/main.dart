@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/SplashScreen.dart';
+import 'package:voodoolist/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

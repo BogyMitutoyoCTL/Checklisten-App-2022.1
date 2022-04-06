@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:voodoolist/Checklisten.dart';
-
-import 'ChooseTheme.dart';
-import 'Language.dart';
+import 'language.dart';
+import 'choose_theme.dart';
 
 class Settingswitch extends StatefulWidget {
   const Settingswitch({Key? key}) : super(key: key);
@@ -29,12 +28,16 @@ class _SettingswitchState extends State<Settingswitch> {
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: OutlinedButton(
-                      onPressed: language, child: Text("Language Settings",style: TextStyle(color: Colors.black, fontSize: 30))),
+                      onPressed: language,
+                      child: Text("Language Settings",
+                          style: TextStyle(color: Colors.black, fontSize: 30))),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: OutlinedButton(
-                      onPressed: theme, child: Text("Theme Settings",style: TextStyle(color: Colors.black, fontSize: 30))),
+                      onPressed: theme,
+                      child: Text("Theme Settings",
+                          style: TextStyle(color: Colors.black, fontSize: 30))),
                 ),
               ],
             ),
@@ -43,11 +46,11 @@ class _SettingswitchState extends State<Settingswitch> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => Checklisten()));
         },
-        child: Text("Back",style: TextStyle(fontSize: 23)),
+        child: Text("Back", style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black87,
         elevation: 0,
