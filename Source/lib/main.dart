@@ -1,26 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+_MyAppState? appState;
+
+class _MyAppState extends State<MyApp> {
+  late SharedPreferences prefs;
+
+  var theme = 0;
+
+  List themes = [ThemeMode.dark, ThemeMode.light, ThemeMode.system];
+
+  _MyAppState() {
+    appState = this;
+    load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      title: 'Voodoo Checklist',
+      title: 'Voodoo-List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ), //lightmode
-      darkTheme: ThemeData(primarySwatch: Colors.red), //darkmode
+      ),
+      darkTheme: ThemeData(primarySwatch: Colors.red),
       home: Splashscreen(),
+      themeMode: themes[theme],
     );
+  }
+
+  void load() async {
+    prefs = await SharedPreferences.getInstance();
+    int? eintrag = prefs.getInt("themewahl");
+    theme = eintrag!;
+    setState(() {});
   }
 }
