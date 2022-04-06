@@ -29,6 +29,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  shared_preferences: 2.0.13
+  localstorage: ^4.0.0+1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,6 +41,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.9.2
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -51,6 +54,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/grau.png
+    - assets/voodoopuppe.png
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -58,7 +65,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+#assets:
+#  - assets/grau.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -87,3 +95,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_icons:
+  image_path: "web/icons/voodoopuppe.png"
+  adaptive_icon_background: "#000000"
+  android: true
+  ios: true

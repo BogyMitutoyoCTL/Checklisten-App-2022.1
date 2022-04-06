@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:voodoolist/splash_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -11,11 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-      ),
-      home: Text('Nothing yet.'),
+      ), //lightmode
+      darkTheme: ThemeData(primarySwatch: Colors.red), //darkmode
+      home: Splashscreen(),
     );
   }
 }
