@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/aufgabe.dart';
 
 import 'Checklisten.dart';
+import 'checkliste.dart';
 
 class Creation extends StatefulWidget {
   const Creation({Key? key}) : super(key: key);
@@ -15,6 +17,7 @@ class _CreationState extends State<Creation> {
   String checklistenName = "";
   List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
+  List<String> Elemente = [];
 
   @override
   void initState() {
@@ -111,6 +114,11 @@ class _CreationState extends State<Creation> {
   }
 
   void save() {
+    List<Aufgabe> aufgaben_liste = [];
+    for (var x = 0; x < _controllers.length; x++) {
+      aufgaben_liste.add(Aufgabe(false, _controllers[x].text));
+    }
+    var checkliste = new Checkliste(checklistenName, aufgaben_liste);
     setState(() {});
     setData();
     Navigator.of(context)
