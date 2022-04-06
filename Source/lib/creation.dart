@@ -11,7 +11,7 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
-  List<TextField> textfields = [];
+  List<Padding> textfields = [];
   String checklistenName = "";
   List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
@@ -60,29 +60,27 @@ class _CreationState extends State<Creation> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          /**/ border: OutlineInputBorder(),
-                          hintText: 'Name der Liste',
-                        ),
-                        controller: _controller1,
-                        onChanged: nameGeaendert,
-                      ),
-                      Text(checklistenName),
-                    ] +
-                    textfields +
-                    [
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: FloatingActionButton(
-                          heroTag: 'btn1',
-                          onPressed: neuerlistenteil,
-                          child: Icon(Icons.add_circle_outline),
-                        ),
-                      )
-                    ],
-              ),
+                  children: ([
+                        TextField(
+                          decoration: InputDecoration(
+                            /**/ border: OutlineInputBorder(),
+                            hintText: 'Name der Liste',
+                          ),
+                          controller: _controller1,
+                          onChanged: nameGeaendert,
+                        ) as Widget
+                      ]) +
+                      textfields +
+                      [
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: FloatingActionButton(
+                            heroTag: 'btn1',
+                            onPressed: neuerlistenteil,
+                            child: Icon(Icons.add_circle_outline),
+                          ),
+                        )
+                      ]),
             ),
           ],
         ),
@@ -98,11 +96,15 @@ class _CreationState extends State<Creation> {
   void neuerlistenteil() {
     n++;
     setState(() {
-      _controllers.add(TextEditingController());
-      TextField textfeld = TextField(
-        decoration: InputDecoration(labelText: '$n. Element'),
-        controller: _controllers.last,
-        onChanged: elementGeandert,
+      var controller2 = TextEditingController();
+      _controllers.add(controller2);
+      var textfeld = Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextField(
+          decoration: InputDecoration(labelText: '$n. Element'),
+          controller: controller2,
+          onChanged: elementGeandert,
+        ),
       );
       textfields.add(textfeld);
     });
