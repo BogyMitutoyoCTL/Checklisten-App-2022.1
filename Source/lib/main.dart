@@ -9,12 +9,24 @@ void main() {
   runApp(RestartWidget(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+_MyAppState? appState;
+
+class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
+
   var theme = 0;
+
   List themes = [ThemeMode.dark, ThemeMode.light, ThemeMode.system];
 
-  MyApp({Key? key}) : super(key: key) {
+  _MyAppState() {
+    appState = this;
     load();
   }
 
@@ -36,5 +48,6 @@ class MyApp extends StatelessWidget {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
     theme = eintrag!;
+    setState(() {});
   }
 }

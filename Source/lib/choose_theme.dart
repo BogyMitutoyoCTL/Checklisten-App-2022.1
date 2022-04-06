@@ -4,6 +4,7 @@ import 'package:voodoolist/checklisten.dart';
 
 import 'first_check.dart';
 import 'RestartWidget.dart';
+import 'package:voodoolist/main.dart';
 import 'settings_switch.dart';
 
 class ChooseTheme extends StatefulWidget {
@@ -131,6 +132,14 @@ class _ChooseThemeState extends State<ChooseTheme> {
     } else {
       firststart = eintrag;
     }
-    RestartWidget.restartApp(context);
+    // RestartWidget.restartApp(context);
+    appState?.load();
+    if (firststart == true) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+    } else if (firststart == false) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
+    }
   }
 }
