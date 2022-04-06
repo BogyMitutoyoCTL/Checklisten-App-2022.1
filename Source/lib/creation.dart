@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Checklisten.dart';
 
 class Creation extends StatefulWidget {
   const Creation({Key? key}) : super(key: key);
@@ -8,50 +9,75 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
-  String eingegebenerText = "";
-  final TextEditingController _controller = TextEditingController();
+  List<TextField> textfields = [];
+  String checklistenName = "";
+  List<TextEditingController> controlers = [];
+  final TextEditingController _controller1 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller.text = eingegebenerText;
+    _controller1.text = checklistenName;
   }
 
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller1.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Create Checklist"),
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Name der Liste',
+      appBar: AppBar(
+        title: Text("Create Checklist"),
+      ),
+      body: Column(
+        children: [
+          //////////////////////////////////////////////////////////////////////
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    /**/ border: OutlineInputBorder(),
+                    labelText: 'Name der Liste',
+                  ),
+                  controller: _controller1,
+                  onChanged: textGeaendert,
                 ),
-                controller: _controller,
-                onChanged: textGeaendert,
-              ),
+                FloatingActionButton(
+                  onPressed: neuerlistenteil,
+                  child: Icon(Icons.add_circle_outline),
+                ),
+              ],
             ),
-            Text(eingegebenerText),
-            FloatingActionButton(
-              onPressed: neuerlistenteil,
-              child: Icon(Icons.add_circle_outline),
-            )
-          ],
-        ));
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: save, child: Icon(Icons.save_alt_outlined)),
+    );
   }
 
-  void neuerlistenteil() {}
-}
+  void neuerlistenteil() {
+    var n = 0;
+    n++;
+    setState(() {
+      TextField(
+        decoration: InputDecoration(labelText: '$n. Element'),
+        controller: _controller1,
+        onChanged: elementGeandert,
+      );
+    });
+  }
 
-void textGeaendert(String value) {}
+  void save() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Checklisten()));
+  }
+
+  void elementGeandert(String value) {}
+  void textGeaendert(String value) {}
+}
