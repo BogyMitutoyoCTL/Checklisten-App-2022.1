@@ -22,8 +22,6 @@ class _CreationState extends State<Creation> {
   void initState() {
     super.initState();
     getData();
-    _controller1.text = this.checklistenName;
-    setState(() {});
   }
 
   setData() async {
@@ -33,7 +31,13 @@ class _CreationState extends State<Creation> {
 
   getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    this.checklistenName = prefs.getString('Name')!;
+    var name = prefs.getString('Name');
+    if (name != null) {
+      setState(() {
+        this.checklistenName = name;
+        _controller1.text = this.checklistenName;
+      });
+    }
   }
 
   @override
