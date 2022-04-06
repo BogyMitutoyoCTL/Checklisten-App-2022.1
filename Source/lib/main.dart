@@ -34,9 +34,13 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
+        backgroundColor: Colors.grey,
       ),
-      darkTheme: ThemeData(primarySwatch: Colors.red),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.grey,
+        backgroundColor: Colors.grey.shade900,
+      ),
       home: Splashscreen(),
       themeMode: themes[theme],
     );
