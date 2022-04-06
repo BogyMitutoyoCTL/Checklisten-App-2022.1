@@ -62,11 +62,15 @@ class _CreationState extends State<Creation> {
   }
 
   void neuerlistenteil() {
-    TextField(
-      decoration: InputDecoration(labelText: '1. Element'),
-      //controller: ...,
-      onChanged: elementGeandert,
-    );
+    var n = 0;
+    n++;
+    setState(() {
+      TextField(
+        decoration: InputDecoration(labelText: '$n. Element'),
+        controller: _controller1,
+        onChanged: elementGeandert,
+      );
+    });
   }
 
   void save() {
