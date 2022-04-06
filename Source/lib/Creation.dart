@@ -42,11 +42,12 @@ class _CreationState extends State<Creation> {
                 TextField(
                   decoration: InputDecoration(
                     /**/ border: OutlineInputBorder(),
-                    labelText: 'Name der Liste',
+                    hintText: 'Name der Liste',
                   ),
                   controller: _controller1,
-                  onChanged: textGeaendert,
+                  onChanged: nameGeaendert,
                 ),
+                Text(checklistenName),
                 FloatingActionButton(
                   onPressed: neuerlistenteil,
                   child: Icon(Icons.add_circle_outline),
@@ -79,5 +80,9 @@ class _CreationState extends State<Creation> {
   }
 
   void elementGeandert(String value) {}
-  void textGeaendert(String value) {}
+  void nameGeaendert(String value) {
+    setState(() {
+      checklistenName = _controller1.text;
+    });
+  }
 }
