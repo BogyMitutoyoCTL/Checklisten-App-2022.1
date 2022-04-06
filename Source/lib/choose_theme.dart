@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'settings_switch.dart';
+import 'package:voodoolist/checklisten.dart';
+
 import 'first_check.dart';
+import 'settings_switch.dart';
 
 class ChooseTheme extends StatefulWidget {
   const ChooseTheme({Key? key}) : super(key: key);
@@ -13,11 +15,12 @@ class ChooseTheme extends StatefulWidget {
 class _ChooseThemeState extends State<ChooseTheme> {
   late SharedPreferences prefs;
   var firststart = true;
+  var themewahl = 2;
 
   @override
   void initState() {
     super.initState();
-    loadFile();
+    saveFile();
   }
 
   @override
@@ -50,11 +53,12 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                      onPressed: onPressed,
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.black, // Background color
-                      ),
-                      child: Text("Dark-Mode")),
+                    onPressed: onPressed1,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black, // Background color
+                    ),
+                    child: Text("Dark-Mode"),
+                  ),
                 ),
               ),
               //////////////////////////////////////////////////////////////////
@@ -63,11 +67,12 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                      onPressed: onPressed,
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.grey, // Background color
-                      ),
-                      child: Text("Light-Mode")),
+                    onPressed: onPressed2,
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.grey, // Background color
+                    ),
+                    child: Text("Light-Mode"),
+                  ),
                 ),
               ),
               //////////////////////////////////////////////////////////////////
@@ -76,7 +81,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                      onPressed: onPressed,
+                      onPressed: onPressed3,
                       style: ElevatedButton.styleFrom(
                         primary: Colors.blue, // Background color
                         //Todo: -System-Mode Farbe anpassen ans System Theme
@@ -92,20 +97,49 @@ class _ChooseThemeState extends State<ChooseTheme> {
     ));
   }
 
-  void onPressed() {
+  void onPressed1() {
     //Theme-mode aendern
+    themewahl = 0;
+    saveFile();
     if (firststart == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => FirstCheck()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Settingswitch()));
     }
   }
 
-  void loadFile() async {
+  void onPressed2() {
+    themewahl = 1;
+    saveFile();
+    //Theme-mode aendern
+    if (firststart == true) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+    } else if (firststart == false) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
+    }
+  }
+
+  void onPressed3() {
+    themewahl = 2;
+    saveFile();
+    //Theme-mode aendern
+    if (firststart == true) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+    } else if (firststart == false) {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
+    }
+  }
+
+  void saveFile() async {
     prefs = await SharedPreferences.getInstance();
     bool? eintrag = prefs.getBool("firststart");
+    int? theme = prefs.getInt("themewahl");
     if (eintrag == null) {
       firststart = true;
       prefs.setBool("firststart", false);
