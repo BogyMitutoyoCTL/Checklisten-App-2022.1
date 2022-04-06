@@ -126,7 +126,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
     } else {
       firststart = eintrag;
     }
-    // RestartWidget.restartApp(context);
     appState?.load();
     if (firststart == true) {
       Navigator.of(context)

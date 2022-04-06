@@ -34,12 +34,18 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
-        backgroundColor: Colors.grey,
+        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+        textTheme: const TextTheme(
+          subtitle1: TextStyle(color: Colors.blue), //Textfarbe für die Textbox
+        ),
       ),
       darkTheme: ThemeData(
-        primarySwatch: Colors.grey,
-        backgroundColor: Colors.grey.shade900,
+        primarySwatch: Colors.red,
+        scaffoldBackgroundColor: const Color(0x000000FF),
+        textTheme: const TextTheme(
+          subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
+        ),
       ),
       home: Splashscreen(),
       themeMode: themes[theme],
