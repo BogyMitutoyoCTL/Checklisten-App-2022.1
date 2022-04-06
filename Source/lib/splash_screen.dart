@@ -10,6 +10,7 @@ class Splashscreen extends StatefulWidget {
   @override
   State<Splashscreen> createState() => _SplashscreenState();
 }
+
 //neuester stand
 class _SplashscreenState extends State<Splashscreen> {
   late SharedPreferences prefs;
@@ -39,11 +40,11 @@ class _SplashscreenState extends State<Splashscreen> {
   void exitSplashScreen() {
     if (firststart == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Language()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => Language()));
       firststart = false;
     } else if (firststart == false) {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => Checklisten()));
     }
   }
 
