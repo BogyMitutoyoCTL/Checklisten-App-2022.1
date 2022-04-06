@@ -69,13 +69,18 @@ class _CreationState extends State<Creation> {
                         onChanged: nameGeaendert,
                       ),
                       Text(checklistenName),
-                      FloatingActionButton(
-                        heroTag: 'btn1',
-                        onPressed: neuerlistenteil,
-                        child: Icon(Icons.add_circle_outline),
-                      ),
                     ] +
-                    textfields,
+                    textfields +
+                    [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: FloatingActionButton(
+                          heroTag: 'btn1',
+                          onPressed: neuerlistenteil,
+                          child: Icon(Icons.add_circle_outline),
+                        ),
+                      )
+                    ],
               ),
             ),
           ],
