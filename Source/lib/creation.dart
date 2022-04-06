@@ -52,32 +52,34 @@ class _CreationState extends State<Creation> {
       appBar: AppBar(
         title: Text("Create Checklist"),
       ),
-      body: Column(
-        children: [
-          //////////////////////////////////////////////////////////////////////
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        /**/ border: OutlineInputBorder(),
-                        hintText: 'Name der Liste',
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //////////////////////////////////////////////////////////////////////
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          /**/ border: OutlineInputBorder(),
+                          hintText: 'Name der Liste',
+                        ),
+                        controller: _controller1,
+                        onChanged: nameGeaendert,
                       ),
-                      controller: _controller1,
-                      onChanged: nameGeaendert,
-                    ),
-                    Text(checklistenName),
-                    FloatingActionButton(
-                      heroTag: 'btn1',
-                      onPressed: neuerlistenteil,
-                      child: Icon(Icons.add_circle_outline),
-                    ),
-                  ] +
-                  textfields,
+                      Text(checklistenName),
+                      FloatingActionButton(
+                        heroTag: 'btn1',
+                        onPressed: neuerlistenteil,
+                        child: Icon(Icons.add_circle_outline),
+                      ),
+                    ] +
+                    textfields,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           heroTag: 'btn2',
