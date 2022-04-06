@@ -11,11 +11,9 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
-  String id = 'id';
-  String path = 'path';
   List<TextField> textfields = [];
   String checklistenName = "";
-  List<TextEditingController> controlers = [];
+  List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
 
   @override
@@ -42,6 +40,9 @@ class _CreationState extends State<Creation> {
 
   @override
   void dispose() {
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
     super.dispose();
     _controller1.dispose();
   }
@@ -52,32 +53,39 @@ class _CreationState extends State<Creation> {
       appBar: AppBar(
         title: Text("Create Checklist"),
       ),
-      body: Column(
-        children: [
-          //////////////////////////////////////////////////////////////////////
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        /**/ border: OutlineInputBorder(),
-                        hintText: 'Name der Liste',
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //////////////////////////////////////////////////////////////////////
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          /**/ border: OutlineInputBorder(),
+                          hintText: 'Name der Liste',
+                        ),
+                        controller: _controller1,
+                        onChanged: nameGeaendert,
                       ),
-                      controller: _controller1,
-                      onChanged: nameGeaendert,
-                    ),
-                    Text(checklistenName),
-                    FloatingActionButton(
-                      heroTag: 'btn1',
-                      onPressed: neuerlistenteil,
-                      child: Icon(Icons.add_circle_outline),
-                    ),
-                  ] +
-                  textfields,
+                      Text(checklistenName),
+                    ] +
+                    textfields +
+                    [
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: FloatingActionButton(
+                          heroTag: 'btn1',
+                          onPressed: neuerlistenteil,
+                          child: Icon(Icons.add_circle_outline),
+                        ),
+                      )
+                    ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           heroTag: 'btn2',
@@ -90,9 +98,10 @@ class _CreationState extends State<Creation> {
   void neuerlistenteil() {
     n++;
     setState(() {
+      _controllers.add(TextEditingController());
       TextField textfeld = TextField(
         decoration: InputDecoration(labelText: '$n. Element'),
-        controller: _controller1,
+        controller: _controllers.last,
         onChanged: elementGeandert,
       );
       textfields.add(textfeld);
@@ -100,6 +109,7 @@ class _CreationState extends State<Creation> {
   }
 
   void save() {
+    setState(() {});
     setData();
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Checklisten()));
