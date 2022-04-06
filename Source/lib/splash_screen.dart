@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Checklisten.dart';
-
-import 'CoundownTimer.dart';
-import 'Language.dart';
+import 'package:voodoolist/checklisten.dart';
+import 'coundown_timer.dart';
+import 'language.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);

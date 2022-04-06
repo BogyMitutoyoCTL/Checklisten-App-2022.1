@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'ChooseTheme.dart';
-import 'Language.dart';
+import 'choose_theme.dart';
+import 'language.dart';
 
 class Settingswitch extends StatefulWidget {
   const Settingswitch({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Checklisten.dart';
+import 'package:voodoolist/checklisten.dart';
 
-import 'ChooseTheme.dart';
+import 'choose_theme.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);

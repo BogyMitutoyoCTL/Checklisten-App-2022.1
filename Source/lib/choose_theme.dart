@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'First_Check.dart';
+import 'first_check.dart';
 
 class ChooseTheme extends StatefulWidget {
   const ChooseTheme({Key? key}) : super(key: key);

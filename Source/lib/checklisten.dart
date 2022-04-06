@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Settingswitch.dart';
+import 'package:voodoolist/settings_switch.dart';
 
 class Checklisten extends StatefulWidget {
   const Checklisten({Key? key}) : super(key: key);
