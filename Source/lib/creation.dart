@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'Checklisten.dart';
 
 class Creation extends StatefulWidget {
@@ -9,23 +11,35 @@ class Creation extends StatefulWidget {
 }
 
 class _CreationState extends State<Creation> {
-////////////////////////////////////////////////////////////////////////////////
+  String id = 'id';
+  String path = 'path';
   List<TextField> textfields = [];
   String checklistenName = "";
   List<TextEditingController> controlers = [];
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller1 = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller.text = checklistenName;
+    getData();
+    _controller1.text = this.checklistenName;
+    setState(() {});
   }
 
-////////////////////////////////////////////////////////////////////////////////
+  setData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('Name', checklistenName);
+  }
+
+  getData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    this.checklistenName = prefs.getString('Name')!;
+  }
+
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller1.dispose();
   }
 
   @override
@@ -46,11 +60,12 @@ class _CreationState extends State<Creation> {
                     /**/ border: OutlineInputBorder(),
                     hintText: 'Name der Liste',
                   ),
-                  controller: _controller,
+                  controller: _controller1,
                   onChanged: nameGeaendert,
                 ),
                 Text(checklistenName),
                 FloatingActionButton(
+                  heroTag: 'btn1',
                   onPressed: neuerlistenteil,
                   child: Icon(Icons.add_circle_outline),
                 ),
@@ -60,7 +75,9 @@ class _CreationState extends State<Creation> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: save, child: Icon(Icons.save_alt_outlined)),
+          heroTag: 'btn2',
+          onPressed: save,
+          child: Icon(Icons.save_alt_outlined)),
     );
   }
 
@@ -70,21 +87,23 @@ class _CreationState extends State<Creation> {
     setState(() {
       TextField(
         decoration: InputDecoration(labelText: '$n. Element'),
-        controller: _controller,
+        controller: _controller1,
         onChanged: elementGeandert,
       );
     });
   }
 
   void save() {
+    setData();
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Checklisten()));
   }
 
   void elementGeandert(String value) {}
+
   void nameGeaendert(String value) {
     setState(() {
-      checklistenName = _controller.text;
+      checklistenName = _controller1.text;
     });
   }
 }
