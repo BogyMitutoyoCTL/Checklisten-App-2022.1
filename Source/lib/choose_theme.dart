@@ -137,9 +137,14 @@ class _ChooseThemeState extends State<ChooseTheme> {
   }
 
   void saveFile() async {
-    if (themewahl != null) {
-      prefs = await SharedPreferences.getInstance();
-      prefs.setInt("themewahl", themewahl);
+    prefs = await SharedPreferences.getInstance();
+    bool? eintrag = prefs.getBool("firststart");
+    int? theme = prefs.getInt("themewahl");
+    if (eintrag == null) {
+      firststart = true;
+      prefs.setBool("firststart", false);
+    } else {
+      firststart = eintrag;
     }
   }
 }
