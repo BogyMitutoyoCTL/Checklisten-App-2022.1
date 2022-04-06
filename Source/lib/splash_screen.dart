@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/checklisten.dart';
-import 'coundown_timer.dart';
-import 'language.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/Checklisten.dart';
+
+import 'CoundownTimer.dart';
+import 'Language.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({Key? key}) : super(key: key);
@@ -11,6 +13,15 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  late SharedPreferences prefs;
+  var firststart = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadFile();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,6 +47,15 @@ class _SplashscreenState extends State<Splashscreen> {
           .push(MaterialPageRoute(builder: (context) => Checklisten()));
     }
   }
-}
 
-var firststart = true;
+  void loadFile() async {
+    prefs = await SharedPreferences.getInstance();
+    bool? eintrag = prefs.getBool("firststart");
+    if (eintrag == null) {
+      firststart = true;
+      prefs.setBool("firststart", false);
+    } else {
+      firststart = eintrag;
+    }
+  }
+}
