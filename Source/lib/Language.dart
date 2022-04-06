@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:voodoolist/Checklisten.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/Settingswitch.dart';
 
+import 'CoundownTimer.dart';
+import 'Language.dart';
 import 'ChooseTheme.dart';
 
 class Language extends StatefulWidget {
@@ -11,6 +15,15 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
+  late SharedPreferences prefs;
+  var firststart = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadFile();
+  }
+
   String dropdownvalue = 'English';
 
   // List of items in our dropdown menu
@@ -41,7 +54,7 @@ class _LanguageState extends State<Language> {
                 padding: const EdgeInsets.all(15.0),
                 child: Text("Choose your language:",
                     style:
-                        TextStyle(fontWeight: FontWeight.w100, fontSize: 30)),
+                        TextStyle(fontWeight: FontWeight.w200, fontSize: 30)),
               ),
               DropdownButton(
                 // Initial Value
@@ -64,34 +77,33 @@ class _LanguageState extends State<Language> {
           ]),
         ]),
       ),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FloatingActionButton(
-            heroTag: 'btn1',
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Checklisten()));
-            },
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            foregroundColor: Colors.black54,
-            child: const Icon(Icons.arrow_back, size: 40),
-          ),
-          FloatingActionButton(
-            heroTag: 'btn2',
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
-            },
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            foregroundColor: Colors.black54,
-            child: const Icon(Icons.arrow_forward, size: 40),
-          ),
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          if(firststart == true){
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
+          }else if(firststart == false){
+          Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
+          }
+        },
+        child: Icon(Icons.arrow_forward, size: 40),
+
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black87,
+        elevation: 0,
+      )
+
     );
+  }
+  void loadFile() async {
+    prefs = await SharedPreferences.getInstance();
+    bool? eintrag = prefs.getBool("firststart");
+    if (eintrag == null) {
+      firststart = true;
+      prefs.setBool("firststart", false);
+    } else {
+      firststart = eintrag;
+    }
   }
 }
