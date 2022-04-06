@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checklisten.dart';
 
 import 'first_check.dart';
 import 'settings_switch.dart';
@@ -14,11 +15,12 @@ class ChooseTheme extends StatefulWidget {
 class _ChooseThemeState extends State<ChooseTheme> {
   late SharedPreferences prefs;
   var firststart = true;
-  late var themewahl;
+  var themewahl = 2;
+
   @override
   void initState() {
     super.initState();
-    loadFile();
+    saveFile();
   }
 
   @override
@@ -98,9 +100,10 @@ class _ChooseThemeState extends State<ChooseTheme> {
   void onPressed1() {
     //Theme-mode aendern
     themewahl = 0;
+    saveFile();
     if (firststart == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => FirstCheck()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Settingswitch()));
@@ -109,10 +112,11 @@ class _ChooseThemeState extends State<ChooseTheme> {
 
   void onPressed2() {
     themewahl = 1;
+    saveFile();
     //Theme-mode aendern
     if (firststart == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => FirstCheck()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Settingswitch()));
@@ -121,25 +125,21 @@ class _ChooseThemeState extends State<ChooseTheme> {
 
   void onPressed3() {
     themewahl = 2;
+    saveFile();
     //Theme-mode aendern
     if (firststart == true) {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => FirstCheck()));
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Settingswitch()));
     }
   }
 
-  void loadFile() async {
-    prefs = await SharedPreferences.getInstance();
-    bool? eintrag = prefs.getBool("firststart");
-    int? theme = prefs.getInt("themewahl");
-    if (eintrag == null) {
-      firststart = true;
-      prefs.setBool("firststart", false);
-    } else {
-      firststart = eintrag;
+  void saveFile() async {
+    if (themewahl != null) {
+      prefs = await SharedPreferences.getInstance();
+      prefs.setInt("themewahl", themewahl);
     }
   }
 }
