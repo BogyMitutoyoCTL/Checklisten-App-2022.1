@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Voodoo Checklist',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ), //lightmode
