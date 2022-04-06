@@ -33,6 +33,34 @@ Unsere Prioritäten für die Umsetzung:
 * für mehrere Geräte (Smartphone, Tablet, Watch), Android und iOS
   * Flutter macht das schon
 
+Wir haben folgende Seiten in unserer App designt:
+
+Splashscreen für unsere Voodoo-App:
+
+<img src="images/SplashScreen.png" alt="Splashscreen" style="zoom:33%;" />
+
+Sprachauswahl:
+
+<img src="images/language.png" style="zoom:33%;" />
+
+Theme-Auswahl:
+
+<img src="images/theme.png" style="zoom:33%;" />
+
+Erstellen der ersten Checkliste:
+
+<img src="images/firstchecklist.png" style="zoom:33%;" />
+
+Editieren einer Checkliste:
+
+<img src="images/createchecklist.png" style="zoom:33%;" />
+
+Ansicht der verfügbaren Checklisten:
+
+<img src="images/checklisten.png" style="zoom:33%;" />
+
+
+
 ## Montag, 4.4.2022
 
 Wir haben uns die Gestaltung von Android Apps mit Hilfe von [Flutter (PPTX⇓)](Flutter.pptx) angeschaut ein ein paar Beispiel-Oberflächen inklusive Navigation entwickelt. Wir haben uns auch noch ein wenig mit [Gestalt Principles (Wikipedia)](https://de.wikipedia.org/wiki/Gestaltpsychologie) beschäftigt und ein paar Beispiele besprochen:
