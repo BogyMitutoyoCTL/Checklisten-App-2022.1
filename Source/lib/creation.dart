@@ -59,21 +59,22 @@ class _CreationState extends State<Creation> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                TextField(
-                  decoration: InputDecoration(
-                    /**/ border: OutlineInputBorder(),
-                    hintText: 'Name der Liste',
-                  ),
-                  controller: _controller1,
-                  onChanged: nameGeaendert,
-                ),
-                Text(checklistenName),
-                FloatingActionButton(
-                  heroTag: 'btn1',
-                  onPressed: neuerlistenteil,
-                  child: Icon(Icons.add_circle_outline),
-                ),
-              ],
+                    TextField(
+                      decoration: InputDecoration(
+                        /**/ border: OutlineInputBorder(),
+                        hintText: 'Name der Liste',
+                      ),
+                      controller: _controller1,
+                      onChanged: nameGeaendert,
+                    ),
+                    Text(checklistenName),
+                    FloatingActionButton(
+                      heroTag: 'btn1',
+                      onPressed: neuerlistenteil,
+                      child: Icon(Icons.add_circle_outline),
+                    ),
+                  ] +
+                  textfields,
             ),
           ),
         ],
@@ -85,15 +86,16 @@ class _CreationState extends State<Creation> {
     );
   }
 
+  var n = 0;
   void neuerlistenteil() {
-    var n = 0;
     n++;
     setState(() {
-      TextField(
+      TextField textfeld = TextField(
         decoration: InputDecoration(labelText: '$n. Element'),
         controller: _controller1,
         onChanged: elementGeandert,
       );
+      textfields.add(textfeld);
     });
   }
 
