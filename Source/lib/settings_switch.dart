@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:voodoolist/Checklisten.dart';
-import 'language.dart';
+
 import 'choose_theme.dart';
+import 'language.dart';
 
 class Settingswitch extends StatefulWidget {
   const Settingswitch({Key? key}) : super(key: key);
@@ -47,8 +47,7 @@ class _SettingswitchState extends State<Settingswitch> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context)
-              .pop(MaterialPageRoute(builder: (context) => Checklisten()));
+          Navigator.of(context).pop();
         },
         child: Text("Back", style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,

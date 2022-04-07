@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'Checklisten.dart';
 import 'aufgabe.dart';
 import 'checkliste.dart';
 
@@ -17,7 +16,7 @@ class Creation extends StatefulWidget {
 class _CreationState extends State<Creation> {
   List<Padding> textfields = [];
   String checklistenName = "";
-  var key = 'einzelnecheckliste';
+  var key = 'key';
   List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
   List<String> Elemente = [];
@@ -33,9 +32,6 @@ class _CreationState extends State<Creation> {
     var name = prefs.getString(key);
     var check = jsonDecode(name!);
     var checklist = fromMapToChecklist(check);
-    setState(() {
-      _controller1.text = checklist.titel;
-    });
   }
 
   @override
@@ -124,8 +120,7 @@ class _CreationState extends State<Creation> {
 
     prefs.setString(key, checkliststring);
 
-    Navigator.of(context)
-        .pop(MaterialPageRoute(builder: (context) => Checklisten()));
+    Navigator.of(context).pop();
   }
 
   void elementGeandert(String value) {}
