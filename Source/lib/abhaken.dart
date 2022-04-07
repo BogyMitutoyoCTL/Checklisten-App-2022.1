@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checkliste.dart';
+import 'aufgabe.dart';
 
 class Abhaken extends StatefulWidget {
   late Checkliste checkliste;
@@ -14,68 +15,46 @@ class Abhaken extends StatefulWidget {
 }
 
 class _AbhakenState extends State<Abhaken> {
-  List<Widget> texte = [];
-
-  var _checked = false;
-
-  var _activeColor;
-
-  var _selected = false;
-
-  var _checkColor;
-
-  //final TextEditingController _controller1 = ();
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    //_controller1.dispose();
-  }
+  var first = true;
+  Map<String, bool> values = {};
 
   @override
   Widget build(BuildContext context) {
-    elementErstellen();
-    return Scaffold(
-      appBar: AppBar(title: Text(widget.checkliste.titel)),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: texte,
-          ),
-        ),
-      ),
-    );
-  }
-
-//
-  elementErstellen() async {
-    List<Checkliste> checklisten = [];
-    var prefs = await SharedPreferences.getInstance();
-    var text = prefs.getString("Element");
-    texte.add(
-      CheckboxListTile(
-        value: _checked,
-        title: Text(
-          text ?? "default",
-          style: TextStyle(color: Colors.grey),
-        ),
-        onChanged: (bool? value) {
-          setState(() {
-            _checked = value!;
-            _selected = value;
-          });
+    loadData();
+    return new Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      appBar: new AppBar(title: new Text(widget.checkliste.titel)),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back, size: 40),
+        elevation: 0,
+        onPressed: () {
+          first = true;
+          //TODO: Checkliste Speichern
+          Navigator.of(context).pop();
         },
-        selected: _selected,
-        //secondary: Icon(Icons.beach_access),
-        controlAffinity: ListTileControlAffinity.leading,
+      ),
+      body: new ListView(
+        children: values.keys.map((String key) {
+          return new CheckboxListTile(
+            title: new Text(key),
+            value: values[key],
+            onChanged: (bool? value) {
+              setState(() {
+                values[key] = value!;
+              });
+            },
+          );
+        }).toList(),
       ),
     );
   }
 
-  void elementGeandert(String value) {}
+  void loadData() {
+    if (first) {
+      for (Aufgabe aufgabe in widget.checkliste.aufgaben_liste) {
+        values[aufgabe.Element] = aufgabe.fertig;
+      }
+      first = false;
+    }
+  }
 }
