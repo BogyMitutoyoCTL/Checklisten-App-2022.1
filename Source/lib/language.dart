@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'alert_klasse.dart';
@@ -53,7 +54,7 @@ class _LanguageState extends State<Language> {
                 Column(children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text("Choose your language:",
+                    child: Text(AppLocalization.of(context)!.languageSettings,
                         style: TextStyle(
                             fontWeight: FontWeight.w300, fontSize: 30)),
                   ),

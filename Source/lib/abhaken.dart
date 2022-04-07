@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checkliste.dart';
-
-import 'creation.dart';
-import 'package:flutter/material.dart';
 
 class Abhaken extends StatefulWidget {
   const Abhaken({Key? key}) : super(key: key);
@@ -30,7 +29,8 @@ class _AbhakenState extends State<Abhaken> {
   Widget build(BuildContext context) {
     elementErstellen();
     return Scaffold(
-      appBar: AppBar(title: Text("ChecklistenName")),
+      appBar: AppBar(
+          title: Text(AppLocalization.of(context)!.appBarChecklistename)),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
