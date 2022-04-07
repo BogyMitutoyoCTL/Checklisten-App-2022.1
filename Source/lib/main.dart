@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/Translate.dart';
 import 'package:voodoolist/splash_screen.dart';
 
 void main() {
@@ -31,9 +33,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
+      //////////////////////////////////////////////////////////////////////////
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+              /*enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green, width: 2.0),*/
+              color: Colors.blue.shade900,
+            )),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue.shade900))),
         //Todo: Outline sichtbar machen und in den anderen Textfields entfernen
         hintColor: Colors.blue,
         primarySwatch: Colors.blue,
@@ -42,14 +56,25 @@ class _MyAppState extends State<MyApp> {
           subtitle1: TextStyle(color: Colors.blue), //Textfarbe für die Textbox
         ),
       ),
+      //////////////////////////////////////////////////////////////////////////
       darkTheme: ThemeData(
-        hintColor: Colors.red,
-        primarySwatch: Colors.red,
-        scaffoldBackgroundColor: const Color(0x000000FF),
+        inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+              color: Colors.white30, //Farbe der Border beim schreiben
+            )),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors
+                        .white30))), //Farbe der Border bevor man drauf geht
+        hintColor: Colors.grey,
+        primarySwatch: Colors.grey,
+        scaffoldBackgroundColor: const Color(0xFF323131),
         textTheme: const TextTheme(
-          subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
+          subtitle1: TextStyle(color: Colors.grey), //farbe für die Textbox
         ),
       ),
+      //////////////////////////////////////////////////////////////////////////
       home: Splashscreen(),
       themeMode: themes[theme],
     );
@@ -58,7 +83,7 @@ class _MyAppState extends State<MyApp> {
   void load() async {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
-    theme = eintrag!;
+    theme = eintrag ?? 0;
     setState(() {});
   }
 }
