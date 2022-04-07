@@ -1,9 +1,9 @@
 class Aufgabe {
   late bool fertig;
-  late String aufgabeStichwort;
+  late String Element;
 
-  Aufgabe(bool fertig, String aufgabeStichwort) {
+  Aufgabe(bool fertig, String Element) {
     this.fertig = fertig;
-    this.aufgabeStichwort = aufgabeStichwort;
+    this.Element = Element;
   }
 }
