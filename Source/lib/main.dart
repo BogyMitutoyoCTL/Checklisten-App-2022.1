@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Colors
-                        .white30))), //Farbe der Border bevor man drauf geht
+                        .white10))), //Farbe der Border bevor man drauf geht
         hintColor: Colors.grey,
         primarySwatch: Colors.grey,
         scaffoldBackgroundColor: const Color(0xFF323131),
