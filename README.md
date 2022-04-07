@@ -1,6 +1,22 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Mittwoch 6.4.2022
+
+Wir haben uns um die bisher eingetragenen Issues gekümmert und ein bisschen "echte" Funktionalität ergänzt, d.h. dass die App sich erstmals Eingaben merkt.
+
+Die Umschaltung zwischen Themes klappt schon. Es gibt ein dunkles Theme und ein helles Theme.
+
+<img src="images/lighttheme.png" style="zoom:33%;" />
+
+<img src="images/darktheme.png" style="zoom:33%;" />
+
+Ein nicht unerheblicher Teil der Arbeit floss auch in das Icon der App, bis es rund und mit dem richtigen Hintergrund angezeigt wurde:
+
+<img src="images/icon.png" style="zoom:33%;" />
+
+Die übrigen Arbeiten fanden unsichtbar im Hintergrund statt: es entstand Programmcode für das Speichern von Daten usw. Wir stellen fest, dass das Pareto-Prinzip hier greift: am ersten Tag (20% des Aufwandes) entstand ein großer Teil der Oberfläche (80%). Möglicherweise verbringen wir das restliche BOGY (80%) ohne größere sichtbare Änderungen.
+
 ## Dienstag 5.4.2022
 
 Wir haben uns auf einen Namen für unsere App geeinigt: Voodoo-List.
