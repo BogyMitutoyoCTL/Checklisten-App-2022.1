@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voodoolist/splash_screen.dart';
-import 'abhaken.dart';
+import 'package:voodoolist/creation.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -72,7 +71,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       //////////////////////////////////////////////////////////////////////////
-      home: Abhaken(),
+      home: (),
       themeMode: themes[theme],
     );
   }

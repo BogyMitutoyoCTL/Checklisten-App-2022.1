@@ -31,12 +31,11 @@ class _CreationState extends State<Creation> {
   getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var name = prefs.getString(key);
-    if (name != null) {
-      setState(() {
-        this.checklistenName = name;
-        _controller1.text = this.checklistenName;
-      });
-    }
+    var check = jsonDecode(name!);
+    var checklist = fromMapToChecklist(check);
+    setState(() {
+      _controller1.text = checklist.titel;
+    });
   }
 
   @override
@@ -64,7 +63,8 @@ class _CreationState extends State<Creation> {
                   children: (<Widget>[
                         TextField(
                           decoration: InputDecoration(
-                            /**/ border: OutlineInputBorder(),
+                            /**/
+                            border: OutlineInputBorder(),
                             hintText: 'Name der Liste',
                           ),
                           controller: _controller1,
@@ -94,6 +94,7 @@ class _CreationState extends State<Creation> {
   }
 
   var n = 0;
+
   void neuerlistenteil() {
     n++;
     setState(() {
