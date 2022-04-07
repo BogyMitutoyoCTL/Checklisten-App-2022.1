@@ -34,6 +34,15 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+              /*enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.green, width: 2.0),*/
+              color: Colors.blue.shade900,
+            )),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.blue.shade900))),
         //Todo: Outline sichtbar machen und in den anderen Textfields entfernen
         hintColor: Colors.blue,
         primarySwatch: Colors.blue,
@@ -43,6 +52,15 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       darkTheme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+              color: Colors.white30, //Farbe der Border beim schreiben
+            )),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                    color: Colors
+                        .white30))), //Farbe der Border bevor man drauf geht
         hintColor: Colors.red,
         primarySwatch: Colors.red,
         scaffoldBackgroundColor: const Color(0x000000FF),
