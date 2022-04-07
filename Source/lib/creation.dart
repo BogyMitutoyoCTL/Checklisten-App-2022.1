@@ -32,7 +32,7 @@ class _CreationState extends State<Creation> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var name = prefs.getString(key);
     if (name != null) {
-      var check = jsonDecode(name!);
+      var check = jsonDecode(name);
       var checklist = fromMapToChecklist(check);
       // TODO: the variable checklist is not used
     }

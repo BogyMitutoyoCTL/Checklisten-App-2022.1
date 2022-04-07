@@ -27,6 +27,7 @@ class _ChecklistenState extends State<Checklisten> {
 
   getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    checklistenliste.clear();
     var name = prefs.getString(key);
     if (name != null) {
       var check = jsonDecode(name);
