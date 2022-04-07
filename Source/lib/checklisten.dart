@@ -37,8 +37,7 @@ class _ChecklistenState extends State<Checklisten> {
                 .push(MaterialPageRoute(builder: (context) => Creation()));
           },
           child: Icon(Icons.add, size: 30),
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.deepPurple,
+          foregroundColor: Colors.white,
           elevation: 10,
         ),
       ),

@@ -1,8 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voodoolist/aufgabe.dart';
 
 import 'Checklisten.dart';
+import 'aufgabe.dart';
 import 'checkliste.dart';
 
 class Creation extends StatefulWidget {
@@ -15,6 +17,7 @@ class Creation extends StatefulWidget {
 class _CreationState extends State<Creation> {
   List<Padding> textfields = [];
   String checklistenName = "";
+  var key = 'einzelnecheckliste';
   List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
   List<String> Elemente = [];
@@ -25,14 +28,9 @@ class _CreationState extends State<Creation> {
     getData();
   }
 
-  setData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('Name', checklistenName);
-  }
-
   getData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var name = prefs.getString('Name');
+    var name = prefs.getString(key);
     if (name != null) {
       setState(() {
         this.checklistenName = name;
@@ -63,7 +61,7 @@ class _CreationState extends State<Creation> {
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
-                  children: ([
+                  children: (<Widget>[
                         TextField(
                           decoration: InputDecoration(
                             /**/ border: OutlineInputBorder(),
@@ -71,7 +69,7 @@ class _CreationState extends State<Creation> {
                           ),
                           controller: _controller1,
                           onChanged: nameGeaendert,
-                        ) as Widget
+                        )
                       ]) +
                       textfields +
                       [
@@ -113,14 +111,18 @@ class _CreationState extends State<Creation> {
     });
   }
 
-  void save() {
+  void save() async {
     List<Aufgabe> aufgaben_liste = [];
     for (var x = 0; x < _controllers.length; x++) {
       aufgaben_liste.add(Aufgabe(false, _controllers[x].text));
     }
     var checkliste = new Checkliste(checklistenName, aufgaben_liste);
-    setState(() {});
-    setData();
+    String checkliststring = jsonEncode(checkliste.toMap());
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setString(key, checkliststring);
+
     Navigator.of(context)
         .pop(MaterialPageRoute(builder: (context) => Checklisten()));
   }
