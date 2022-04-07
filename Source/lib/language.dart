@@ -75,7 +75,7 @@ class _LanguageState extends State<Language> {
               if (firststart == true) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
-              } else if (firststart == false) {
+              } else {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => Settingswitch()));
               }
