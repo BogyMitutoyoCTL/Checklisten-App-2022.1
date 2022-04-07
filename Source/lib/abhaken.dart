@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checkliste.dart';
 
 class Abhaken extends StatefulWidget {
   late Checkliste checkliste;
+
   Abhaken(Checkliste liste, {Key? key}) : super(key: key) {
     checkliste = liste;
   }
@@ -23,6 +23,7 @@ class _AbhakenState extends State<Abhaken> {
   var _selected = false;
 
   var _checkColor;
+
   //final TextEditingController _controller1 = ();
   @override
   void initState() {

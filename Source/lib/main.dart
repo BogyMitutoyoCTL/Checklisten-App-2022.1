@@ -63,9 +63,8 @@ class _MyAppState extends State<MyApp> {
               color: Colors.white30, //Farbe der Border beim schreiben
             )),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: Colors
-                        .white10))), //Farbe der Border bevor man drauf geht
+                borderSide: BorderSide(color: Colors.white10))),
+        //Farbe der Border bevor man drauf geht
         hintColor: Colors.grey,
         primarySwatch: Colors.grey,
         scaffoldBackgroundColor: const Color(0xFF323131),
