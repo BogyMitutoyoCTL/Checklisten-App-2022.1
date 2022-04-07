@@ -10,5 +10,3 @@ class Aufgabe {
 
   Map<String, dynamic> toJson() => {'fertig': fertig, 'Element': Element};
 }
-
-

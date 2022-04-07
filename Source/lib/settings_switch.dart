@@ -30,14 +30,14 @@ class _SettingswitchState extends State<Settingswitch> {
                   child: OutlinedButton(
                       onPressed: language,
                       child: Text("Language Settings",
-                          style: TextStyle(color: Colors.black, fontSize: 30))),
+                          style: TextStyle(fontSize: 30))),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: OutlinedButton(
                       onPressed: theme,
                       child: Text("Theme Settings",
-                          style: TextStyle(color: Colors.black, fontSize: 30))),
+                          style: TextStyle(fontSize: 30))),
                 ),
               ],
             ),
@@ -48,7 +48,7 @@ class _SettingswitchState extends State<Settingswitch> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Checklisten()));
+              .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
         child: Text("Back", style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
@@ -68,3 +68,4 @@ class _SettingswitchState extends State<Settingswitch> {
         .push(MaterialPageRoute(builder: (context) => ChooseTheme()));
   }
 }
+//

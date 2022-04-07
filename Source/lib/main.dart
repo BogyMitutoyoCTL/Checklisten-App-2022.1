@@ -67,11 +67,11 @@ class _MyAppState extends State<MyApp> {
                 borderSide: BorderSide(
                     color: Colors
                         .white30))), //Farbe der Border bevor man drauf geht
-        hintColor: Colors.red,
-        primarySwatch: Colors.red,
+        hintColor: Colors.grey,
+        primarySwatch: Colors.grey,
         scaffoldBackgroundColor: const Color(0xFF323131),
         textTheme: const TextTheme(
-          subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
+          subtitle1: TextStyle(color: Colors.grey), //farbe für die Textbox
         ),
       ),
       //////////////////////////////////////////////////////////////////////////

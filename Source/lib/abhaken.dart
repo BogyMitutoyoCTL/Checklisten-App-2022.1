@@ -13,6 +13,18 @@ class Abhaken extends StatefulWidget {
 
 class _AbhakenState extends State<Abhaken> {
   List<Widget> texte = [];
+  //final TextEditingController _controller1 = ();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    //_controller1.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +44,16 @@ class _AbhakenState extends State<Abhaken> {
     List<Checkliste> checklisten = [];
     var prefs = await SharedPreferences.getInstance();
     var text = prefs.getString("Element");
-    texte.add(Text(
-      text ?? "default",
-      style: TextStyle(color: Colors.red),
+    texte.add(CheckboxListTile(
+      title: Text(
+        text ?? "default",
+        style: TextStyle(color: Colors.red),
+      ),
+      onChanged: (newValue) {
+        setState(() {});
+      },
+      controlAffinity: ListTileControlAffinity.leading,
+      value: null, //  <-- leading Checkbox
     ));
     for (var i = 0; i < checklisten.length; i++) {
       for (var n = 0; n < checklisten.length; n++) {

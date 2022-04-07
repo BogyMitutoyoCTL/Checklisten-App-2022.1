@@ -128,11 +128,9 @@ class _ChooseThemeState extends State<ChooseTheme> {
     }
     appState?.load();
     if (firststart == true) {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Checklisten()));
+      Navigator.of(context).pop();
     } else if (firststart == false) {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => Settingswitch()));
+      Navigator.of(context).pop();
     }
   }
 }
