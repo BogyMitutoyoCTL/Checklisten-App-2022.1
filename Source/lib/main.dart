@@ -1,13 +1,37 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checkliste.dart';
 import 'package:voodoolist/splash_screen.dart';
 
 import 'AllData.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+
+  //await writetest();
+  await readtest();
+
+  // runApp(MyApp());
+}
+
+Future<void> readtest() async {
+  AllData a = new AllData();
+  await a.loadallchecklists();
+  print(a.checklistenliste.length);
+  print(a.checklistenliste[0].titel);
+  print(a.checklistenliste[1].titel);
+}
+
+Future<void> writetest() async {
+  AllData a = new AllData();
+  var checkliste = new Checkliste("test");
+  checkliste.addNewTask("zuzuu");
+  a.addNewChecklist(checkliste);
+  var checkliste2 = new Checkliste("test2");
+  checkliste2.addNewTask("zuzuu2");
+  a.addNewChecklist(checkliste2);
+  await a.saveallchecklists();
 }
 
 class MyApp extends StatefulWidget {

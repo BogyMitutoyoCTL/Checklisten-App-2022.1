@@ -6,19 +6,19 @@ import 'checkliste.dart';
 
 class AllData {
   List<Checkliste> checklistenliste = [];
-  var key = 'key';
+
   void addNewChecklist(Checkliste checklist) {
     checklistenliste.add(checklist);
     saveallchecklists();
   }
 
-  void saveasinglechecklist(Checkliste checkliste) async {
+  Future<void> saveASingleChecklist(Checkliste checkliste, String key) async {
     String checkliststring = jsonEncode(checkliste.toMap());
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(key, checkliststring);
   }
 
-  Future<Checkliste?> loadSingleChecklist() async {
+  Future<Checkliste?> loadSingleChecklist(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var name = prefs.getString(key);
     if (name != null) {
@@ -29,6 +29,27 @@ class AllData {
     return null;
   }
 
-  void saveallchecklists() {}
-  void loadallchecklists() {}
+  Future<void> saveallchecklists() async {
+    var key = "key";
+    for (var counter = 0; counter < checklistenliste.length; counter++) {
+      await saveASingleChecklist(
+          checklistenliste[counter], key + counter.toString());
+    }
+  }
+
+  Future<void> loadallchecklists() async {
+    var key = "key";
+    var counter = 0;
+    checklistenliste.clear();
+    Checkliste? loadSingleChecklist2;
+    do {
+      loadSingleChecklist2 =
+          await loadSingleChecklist(key + counter.toString());
+
+      if (loadSingleChecklist2 != null) {
+        checklistenliste.add(loadSingleChecklist2);
+      }
+      counter++;
+    } while (loadSingleChecklist2 != null);
+  }
 }

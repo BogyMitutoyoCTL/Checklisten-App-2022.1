@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/abhaken.dart';
 
+import 'AllData.dart';
 import 'alert_klasse.dart';
 import 'checkliste.dart';
 import 'creation.dart';
@@ -19,24 +17,7 @@ class Checklisten extends StatefulWidget {
 class _ChecklistenState extends State<Checklisten> {
   var key = 'key';
   List<TextButton> Checklistenbutton = [];
-  List<Checkliste> checklistenliste = [];
-
-  _ChecklistenState() {
-    getData();
-  }
-
-  getData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    checklistenliste.clear();
-    var name = prefs.getString(key);
-    if (name != null) {
-      var check = jsonDecode(name);
-      var checklist = fromMapToChecklist(check);
-      checklistenliste.add(checklist);
-    }
-    buttoncreation();
-    setState(() {});
-  }
+  List<Checkliste> checklistenliste = AllData().checklistenliste;
 
   void buttoncreation() {
     Checklistenbutton.clear();
@@ -77,8 +58,7 @@ class _ChecklistenState extends State<Checklisten> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Creation()))
-                .then((value) => getData());
+                .push(MaterialPageRoute(builder: (context) => Creation()));
           },
           child: Icon(Icons.add, size: 30),
           foregroundColor: Colors.white,
