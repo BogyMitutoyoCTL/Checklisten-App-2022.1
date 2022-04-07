@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'aufgabe.dart';
@@ -50,7 +51,7 @@ class _CreationState extends State<Creation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Checklist"),
+        title: Text(AppLocalizations.of(context)!.appBarCreateChecklist),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -64,7 +65,7 @@ class _CreationState extends State<Creation> {
                           decoration: InputDecoration(
                             /**/
                             border: OutlineInputBorder(),
-                            hintText: 'Name der Liste',
+                            hintText: AppLocalizations.of(context)!.hintText,
                           ),
                           controller: _controller1,
                           onChanged: nameGeaendert,

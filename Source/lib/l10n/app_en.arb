@@ -6,6 +6,6 @@
 "mainScreenButtomButton": "Back",
   "languageSettings": "Choose your language",
   "appBarChecklistname": "Name of the checklists",
-  "hintText": "Name der Liste",
+  "hintText": "Name of the list",
   "appBarCreateChecklist": "NEW Checklist"
 }
