@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 class AlertButton {
   Future<bool> beforeExit(BuildContext context) async {
-    var ergebnis = await meldung(context);
+    var ergebnis;
+    if (Navigator.canPop(context)) {
+      ergebnis = true;
+    } else
+      () async {
+        ergebnis = await meldung(context);
+      };
     return (ergebnis) ?? false;
   }
 
