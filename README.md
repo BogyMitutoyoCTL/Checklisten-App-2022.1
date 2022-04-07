@@ -1,6 +1,10 @@
 # Checklisten-App-2022.1
 Checklisten erstellen und ausfüllen mit einer App für Smartphones 📱.
 
+## Donnerstag 7.4.2022
+
+Neben mehreren internen Fortschritten (Code) haben wir ein bisschen was über  [Globalisierung (PPTX⇓)](Globalisierung.pptx) gelernt, um unsere App zu übersetzen.
+
 ## Mittwoch 6.4.2022
 
 Wir haben uns um die bisher eingetragenen Issues gekümmert und ein bisschen "echte" Funktionalität ergänzt, d.h. dass die App sich erstmals Eingaben merkt.
