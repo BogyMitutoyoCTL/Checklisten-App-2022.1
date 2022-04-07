@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       //////////////////////////////////////////////////////////////////////////
-      home: Abhaken(),
+      home: Splashscreen(),
       themeMode: themes[theme],
     );
   }
