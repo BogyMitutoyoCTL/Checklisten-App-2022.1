@@ -3,6 +3,8 @@ import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/splash_screen.dart';
 
+import 'AllData.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -15,7 +17,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-_MyAppState? appState;
+_MyAppState? appState = null;
+AllData? allData = null;
 
 class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
@@ -26,6 +29,8 @@ class _MyAppState extends State<MyApp> {
 
   _MyAppState() {
     appState = this;
+    allData = AllData();
+    allData?.loadallchecklists();
     load();
   }
 

@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'aufgabe.dart';
 import 'checkliste.dart';
+import 'main.dart';
 
 class Creation extends StatefulWidget {
   const Creation({Key? key}) : super(key: key);
@@ -17,7 +14,7 @@ class Creation extends StatefulWidget {
 class _CreationState extends State<Creation> {
   List<Padding> textfields = [];
   String checklistenName = "";
-  var key = 'key';
+
   List<TextEditingController> _controllers = [];
   final TextEditingController _controller1 = TextEditingController();
   List<String> Elemente = [];
@@ -25,17 +22,6 @@ class _CreationState extends State<Creation> {
   @override
   void initState() {
     super.initState();
-    getData();
-  }
-
-  getData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var name = prefs.getString(key);
-    if (name != null) {
-      var check = jsonDecode(name);
-      var checklist = fromMapToChecklist(check);
-      // TODO: the variable checklist is not used
-    }
   }
 
   @override
@@ -88,7 +74,7 @@ class _CreationState extends State<Creation> {
       ),
       floatingActionButton: FloatingActionButton(
           heroTag: 'btn2',
-          onPressed: save,
+          onPressed: save_and_navigate,
           child: Icon(Icons.save_alt_outlined)),
     );
   }
@@ -112,19 +98,12 @@ class _CreationState extends State<Creation> {
     });
   }
 
-  void save() async {
-    List<Aufgabe> aufgaben_liste = [];
+  Checkliste getChecklistFromInput() {
+    var checkliste = new Checkliste(checklistenName);
     for (var x = 0; x < _controllers.length; x++) {
-      aufgaben_liste.add(Aufgabe(false, _controllers[x].text));
+      checkliste.addNewTask(_controllers[x].text);
     }
-    var checkliste = new Checkliste(checklistenName, aufgaben_liste);
-    String checkliststring = jsonEncode(checkliste.toMap());
-
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-
-    prefs.setString(key, checkliststring);
-
-    Navigator.of(context).pop();
+    return checkliste;
   }
 
   void elementGeandert(String value) {}
@@ -133,6 +112,12 @@ class _CreationState extends State<Creation> {
     setState(() {
       checklistenName = _controller1.text;
     });
+  }
+
+  void save_and_navigate() {
+    Checkliste checkliste = getChecklistFromInput();
+    allData?.addNewChecklist(checkliste);
+    Navigator.of(context).pop();
   }
 }
 //
