@@ -124,7 +124,7 @@ class _CreationState extends State<Creation> {
     prefs.setString(key, checkliststring);
 
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Checklisten()));
+        .pop(MaterialPageRoute(builder: (context) => Checklisten()));
   }
 
   void elementGeandert(String value) {}
@@ -135,3 +135,4 @@ class _CreationState extends State<Creation> {
     });
   }
 }
+//
