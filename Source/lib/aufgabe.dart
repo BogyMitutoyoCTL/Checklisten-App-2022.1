@@ -1,5 +1,3 @@
-';
-
 class Aufgabe {
   late bool fertig;
   late String Element;

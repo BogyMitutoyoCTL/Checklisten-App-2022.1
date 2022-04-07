@@ -31,8 +31,7 @@ Checkliste fromMapToChecklist(var checkliste_as_string) {
   for (String aufgabe_as_map in checklist_as_map) {
     var fertig = false;
     var element_from_aufgabe;
-    if (aufgabe_as_map.contains('true')) {
-      //TODO: funktioniert nicht richtig, wenn true im text ist
+    if (aufgabe_as_map.substring(10, 11) == 't') {
       fertig = true;
       element_from_aufgabe =
           aufgabe_as_map.substring(26, aufgabe_as_map.length - 2);
