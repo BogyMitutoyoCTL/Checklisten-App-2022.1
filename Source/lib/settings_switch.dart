@@ -17,7 +17,7 @@ class _SettingswitchState extends State<Settingswitch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalization.of(context)!.appBarSettings)),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.appBarSettings)),
       body: Container(
         /*decoration: BoxDecoration(
             image: DecorationImage(
@@ -33,7 +33,7 @@ class _SettingswitchState extends State<Settingswitch> {
                   child: OutlinedButton(
                       onPressed: language,
                       child: Text(
-                          AppLocalization.of(context)!
+                          AppLocalizations.of(context)!
                               .mainScreenLanguageSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
@@ -42,7 +42,7 @@ class _SettingswitchState extends State<Settingswitch> {
                   child: OutlinedButton(
                       onPressed: theme,
                       child: Text(
-                          AppLocalization.of(context)!.mainScreenThemeSettings,
+                          AppLocalizations.of(context)!.mainScreenThemeSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
               ],
@@ -56,7 +56,7 @@ class _SettingswitchState extends State<Settingswitch> {
           Navigator.of(context)
               .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
-        child: Text(AppLocalization.of(context)!.mainScreenButtomButton,
+        child: Text(AppLocalizations.of(context)!.mainScreenButtomButton,
             style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black87,

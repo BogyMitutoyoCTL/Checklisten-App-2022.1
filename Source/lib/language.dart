@@ -54,7 +54,7 @@ class _LanguageState extends State<Language> {
                 Column(children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text(AppLocalization.of(context)!.languageSettings,
+                    child: Text(AppLocalizations.of(context)!.languageSettings,
                         style: TextStyle(
                             fontWeight: FontWeight.w300, fontSize: 30)),
                   ),

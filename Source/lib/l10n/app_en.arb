@@ -1,3 +1,10 @@
 {
-"appBarChecklists": "Your Checklists"
+"appBarChecklists": "Your Checklists",
+  "appBarSettings": "Settings",
+  "mainScreenLanguageSettings": "Change language",
+  "mainScreenThemeSettings": "Change Theme",
+"mainScreenButtomButton": "Back",
+  "languageSettings": "Choose your language",
+  "appBarChecklistname": "Name of the checklists"
+
 }
