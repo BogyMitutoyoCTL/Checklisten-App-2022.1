@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:voodoolist/Checklisten.dart';
 
-import 'choose_theme.dart';
 import 'choose_theme.dart';
 import 'language.dart';
 
