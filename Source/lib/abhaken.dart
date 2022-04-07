@@ -22,7 +22,17 @@ class _AbhakenState extends State<Abhaken> {
   Widget build(BuildContext context) {
     loadData();
     return new Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       appBar: new AppBar(title: new Text(widget.checkliste.titel)),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back, size: 40),
+        elevation: 0,
+        onPressed: () {
+          first = true;
+          //TODO: Checkliste Speichern
+          Navigator.of(context).pop();
+        },
+      ),
       body: new ListView(
         children: values.keys.map((String key) {
           return new CheckboxListTile(
