@@ -43,9 +43,9 @@ class _LanguageState extends State<Language> {
       onWillPop: Meldung,
       child: Scaffold(
           body: Container(
-            decoration: BoxDecoration(
+            /*decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),
+                    image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -54,13 +54,14 @@ class _LanguageState extends State<Language> {
                     padding: const EdgeInsets.all(15.0),
                     child: Text("Choose your language:",
                         style: TextStyle(
-                            fontWeight: FontWeight.w200, fontSize: 30)),
+                            fontWeight: FontWeight.w300, fontSize: 30)),
                   ),
                   DropdownButton(
                     value: dropdownvalue,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: items.map(convertStringToMenuItem).toList(),
-                    onChanged: (dynamic? newValue) {
+                    onChanged: (dynamic newValue) {
+                      //The '?' is unnecessary because 'dynamic' is nullable without it. --> before: dynamic? newValue
                       setState(() {
                         dropdownvalue = newValue!;
                       });

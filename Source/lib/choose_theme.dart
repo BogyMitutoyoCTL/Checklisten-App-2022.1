@@ -25,9 +25,9 @@ class _ChooseThemeState extends State<ChooseTheme> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      decoration: BoxDecoration(
+      /*decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),
+              image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
