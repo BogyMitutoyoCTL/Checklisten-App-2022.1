@@ -28,6 +28,7 @@ class _AbhakenState extends State<Abhaken> {
   @override
   void initState() {
     super.initState();
+    elementErstellen();
   }
 
   @override
@@ -38,7 +39,6 @@ class _AbhakenState extends State<Abhaken> {
 
   @override
   Widget build(BuildContext context) {
-    elementErstellen();
     return Scaffold(
       appBar: AppBar(title: Text(widget.checkliste.titel)),
       body: Padding(
@@ -53,28 +53,27 @@ class _AbhakenState extends State<Abhaken> {
   }
 
 //
-  elementErstellen() async {
-    List<Checkliste> checklisten = [];
-    var prefs = await SharedPreferences.getInstance();
-    var text = prefs.getString("Element");
-    texte.add(
-      CheckboxListTile(
-        value: _checked,
-        title: Text(
-          text ?? "default",
-          style: TextStyle(color: Colors.grey),
+  elementErstellen() {
+    for (var aufgabe in widget.checkliste.aufgaben_liste) {
+      texte.add(
+        CheckboxListTile(
+          value: _checked,
+          title: Text(
+            aufgabe.Element,
+            style: TextStyle(color: Colors.grey),
+          ),
+          onChanged: (bool? value) {
+            setState(() {
+              _checked = value!;
+              _selected = value;
+            });
+          },
+          selected: _selected,
+          //secondary: Icon(Icons.beach_access),
+          controlAffinity: ListTileControlAffinity.leading,
         ),
-        onChanged: (bool? value) {
-          setState(() {
-            _checked = value!;
-            _selected = value;
-          });
-        },
-        selected: _selected,
-        //secondary: Icon(Icons.beach_access),
-        controlAffinity: ListTileControlAffinity.leading,
-      ),
-    );
+      );
+    }
   }
 
   void elementGeandert(String value) {}
