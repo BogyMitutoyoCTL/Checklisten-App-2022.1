@@ -5,10 +5,10 @@ class AlertButton {
     var ergebnis;
     if (Navigator.canPop(context)) {
       ergebnis = true;
-    } else
-      () async {
-        ergebnis = await meldung(context);
-      };
+    } else {
+      ergebnis = await meldung(context);
+    }
+    ;
     return (ergebnis) ?? false;
   }
 

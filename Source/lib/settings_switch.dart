@@ -48,7 +48,7 @@ class _SettingswitchState extends State<Settingswitch> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Checklisten()));
+              .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
         child: Text("Back", style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,

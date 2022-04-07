@@ -122,7 +122,7 @@ class _CreationState extends State<Creation> {
     setState(() {});
     setData();
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Checklisten()));
+        .pop(MaterialPageRoute(builder: (context) => Checklisten()));
   }
 
   void elementGeandert(String value) {}
