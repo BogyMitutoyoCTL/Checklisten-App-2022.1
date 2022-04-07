@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'checklisten.dart';
@@ -25,16 +26,32 @@ class _SplashscreenState extends State<Splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image(
-          image: AssetImage("assets/voodoopuppe.png"),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image(
+            image: AssetImage("assets/voodoopuppe.png"),
 
-          /* color: Colors.white,*/
-        ),
-        CountDownTimer(whenTimeExpires: exitSplashScreen)
-      ],
+            /* color: Colors.white,*/
+          ),
+          Text("VOODOO",
+              style: TextStyle(
+                color: Colors.white54,
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+                backgroundColor: Colors.black,
+              )),
+          Text("LIST",
+              style: TextStyle(
+                  color: Colors.white54,
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                  backgroundColor: Colors.black)),
+          CountDownTimer(whenTimeExpires: exitSplashScreen)
+        ],
+      ),
     );
   }
 
