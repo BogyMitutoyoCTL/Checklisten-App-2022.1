@@ -53,7 +53,7 @@ class _CreationState extends State<Creation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Checklist"),
+        title: Text(AppLocalizations.of(context)!.appBarCreateChecklist),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -66,7 +66,7 @@ class _CreationState extends State<Creation> {
                         TextField(
                           decoration: InputDecoration(
                             /**/ border: OutlineInputBorder(),
-                            hintText: 'Name der Liste',
+                            hintText: AppLocalizations.of(context)!.hintText,
                           ),
                           controller: _controller1,
                           onChanged: nameGeaendert,
