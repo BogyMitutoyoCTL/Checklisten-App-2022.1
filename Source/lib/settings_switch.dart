@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
+import 'package:voodoolist/Checklisten.dart';
 
+import 'choose_theme.dart';
 import 'choose_theme.dart';
 import 'language.dart';
 
@@ -14,7 +17,7 @@ class _SettingswitchState extends State<Settingswitch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Settings")),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.appBarSettings)),
       body: Container(
         /*decoration: BoxDecoration(
             image: DecorationImage(
@@ -29,14 +32,17 @@ class _SettingswitchState extends State<Settingswitch> {
                   padding: const EdgeInsets.all(10.0),
                   child: OutlinedButton(
                       onPressed: language,
-                      child: Text("Language Settings",
+                      child: Text(
+                          AppLocalizations.of(context)!
+                              .mainScreenLanguageSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: OutlinedButton(
                       onPressed: theme,
-                      child: Text("Theme Settings",
+                      child: Text(
+                          AppLocalizations.of(context)!.mainScreenThemeSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
               ],
@@ -47,9 +53,11 @@ class _SettingswitchState extends State<Settingswitch> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pop();
+          Navigator.of(context)
+              .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
-        child: Text("Back", style: TextStyle(fontSize: 23)),
+        child: Text(AppLocalizations.of(context)!.mainScreenButtomButton,
+            style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black87,
         elevation: 0,

@@ -1,14 +1,25 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:voodoolist/checklisten.dart';
+
 import 'aufgabe.dart';
+import 'abhaken.dart';
 
 class Checkliste {
   late String titel;
   late List<Aufgabe> aufgaben_liste;
+  late List<bool> value;
 
   Checkliste(String titel, List<Aufgabe> aufgaben_liste) {
     this.titel = titel;
     this.aufgaben_liste = aufgaben_liste;
+  }
+
+  void checklistenReset() {
+    for (var i = 0; i < aufgaben_liste.length; i++) {
+      aufgaben_liste[i].fertig = false;
+    }
   }
 
   Map<String, List<String>> toMap() {
@@ -16,6 +27,7 @@ class Checkliste {
     for (var aufgaben in this.aufgaben_liste) {
       value.add(jsonEncode(aufgaben));
     }
+
     return {this.titel: value};
   }
 }

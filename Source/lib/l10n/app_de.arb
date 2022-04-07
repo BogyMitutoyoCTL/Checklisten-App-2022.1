@@ -1,0 +1,12 @@
+{
+  "appBarChecklists": "Deine Checklisten",
+  "appBarSettings": "Einstellungen",
+  "mainScreenLanguageSettings": "Spracheinstellungen",
+  "mainScreenThemeSettings": "Themeneintellung",
+  "mainScreenButtomButton": "Zurück",
+  "languageSettings": "Wähle deine Sprache",
+  "appBarChecklistname": "Name der Checkliste",
+  "hintText": "Name der Liste",
+  "appBarCreateChecklist": "NEUE Checklisten"
+
+}

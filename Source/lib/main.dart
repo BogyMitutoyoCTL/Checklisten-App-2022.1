@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/splash_screen.dart';
-import 'abhaken.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +32,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
       //////////////////////////////////////////////////////////////////////////
@@ -63,12 +65,12 @@ class _MyAppState extends State<MyApp> {
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                     color: Colors
-                        .white30))), //Farbe der Border bevor man drauf geht
-        hintColor: Colors.red,
-        primarySwatch: Colors.red,
+                        .white10))), //Farbe der Border bevor man drauf geht
+        hintColor: Colors.grey,
+        primarySwatch: Colors.grey,
         scaffoldBackgroundColor: const Color(0xFF323131),
         textTheme: const TextTheme(
-          subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
+          subtitle1: TextStyle(color: Colors.grey), //farbe für die Textbox
         ),
       ),
       //////////////////////////////////////////////////////////////////////////
@@ -77,6 +79,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+//
   void load() async {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
-import 'settings_switch.dart';
-import 'choose_theme.dart';
+
 import 'alert_klasse.dart';
+import 'choose_theme.dart';
+import 'settings_switch.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -52,7 +54,7 @@ class _LanguageState extends State<Language> {
                 Column(children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text("Choose your language:",
+                    child: Text(AppLocalizations.of(context)!.languageSettings,
                         style: TextStyle(
                             fontWeight: FontWeight.w300, fontSize: 30)),
                   ),
@@ -94,6 +96,7 @@ class _LanguageState extends State<Language> {
     bool? eintrag = prefs.getBool("firststart");
     if (eintrag == null) {
       firststart = true;
+
       prefs.setBool("firststart", false);
     } else {
       firststart = eintrag;
