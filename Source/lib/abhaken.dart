@@ -26,7 +26,7 @@ class _AbhakenState extends State<Abhaken> {
     elementErstellen();
     return Scaffold(
       appBar: AppBar(
-          title: Text(AppLocalization.of(context)!.appBarChecklistename)),
+          title: Text(AppLocalizations.of(context)!.appBarChecklistname)),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
