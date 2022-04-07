@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'settings_switch.dart';
 import 'creation.dart';
+import 'alert_klasse.dart';
 
 class Checklisten extends StatefulWidget {
   const Checklisten({Key? key}) : super(key: key);
@@ -12,32 +13,39 @@ class Checklisten extends StatefulWidget {
 class _ChecklistenState extends State<Checklisten> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Checklisten'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.menu,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Settingswitch()));
-            },
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        //neue Liste
-        onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => Creation()));
-        },
-        child: Icon(Icons.add, size: 30),
-        foregroundColor: Colors.white,
-        elevation: 10,
+    return WillPopScope(
+      onWillPop: Meldung,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Checklisten'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Settingswitch()));
+              },
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Creation()));
+          },
+          child: Icon(Icons.add, size: 30),
+          foregroundColor: Colors.white,
+          elevation: 10,
+        ),
       ),
     );
+  }
+
+  Future<bool> Meldung() async {
+    var warnSignal = AlertButton();
+    return await warnSignal.beforeExit(context);
   }
 }
