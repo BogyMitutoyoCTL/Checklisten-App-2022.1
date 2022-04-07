@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:voodoolist/Checklisten.dart';
 
 import 'choose_theme.dart';
@@ -16,7 +17,7 @@ class _SettingswitchState extends State<Settingswitch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.appBarSettings)),
+      appBar: AppBar(title: Text(AppLocalization.of(context)!.appBarSettings)),
       body: Container(
         /*decoration: BoxDecoration(
             image: DecorationImage(
@@ -32,7 +33,7 @@ class _SettingswitchState extends State<Settingswitch> {
                   child: OutlinedButton(
                       onPressed: language,
                       child: Text(
-                          AppLocalizations.of(context)!
+                          AppLocalization.of(context)!
                               .mainScreenLanguageSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
@@ -41,7 +42,7 @@ class _SettingswitchState extends State<Settingswitch> {
                   child: OutlinedButton(
                       onPressed: theme,
                       child: Text(
-                          AppLocalizations.of(context)!.mainScreenThemeSettings,
+                          AppLocalization.of(context)!.mainScreenThemeSettings,
                           style: TextStyle(fontSize: 30))),
                 ),
               ],
@@ -55,7 +56,7 @@ class _SettingswitchState extends State<Settingswitch> {
           Navigator.of(context)
               .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
-        child: Text(AppLocalizations.of(context)!.mainScreenButtomButton,
+        child: Text(AppLocalization.of(context)!.mainScreenButtomButton,
             style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black87,
