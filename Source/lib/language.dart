@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'settings_switch.dart';
-import 'choose_theme.dart';
+
 import 'alert_klasse.dart';
+import 'choose_theme.dart';
+import 'settings_switch.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -94,6 +95,7 @@ class _LanguageState extends State<Language> {
     bool? eintrag = prefs.getBool("firststart");
     if (eintrag == null) {
       firststart = true;
+
       prefs.setBool("firststart", false);
     } else {
       firststart = eintrag;

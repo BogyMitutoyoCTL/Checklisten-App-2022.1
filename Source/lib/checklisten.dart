@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'settings_switch.dart';
-import 'creation.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
+
 import 'alert_klasse.dart';
+import 'creation.dart';
+import 'settings_switch.dart';
 
 class Checklisten extends StatefulWidget {
   const Checklisten({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class _ChecklistenState extends State<Checklisten> {
       onWillPop: Meldung,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Checklisten'),
+          title: Text(AppLocalizations.of(context)!.appBarChecklists),
           actions: <Widget>[
             IconButton(
               icon: Icon(
