@@ -76,7 +76,7 @@ class _MyAppState extends State<MyApp> {
   void load() async {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
-    theme = eintrag!;
+    theme = eintrag ?? 0;
     setState(() {});
   }
 }
