@@ -1,5 +1,3 @@
-';
-
 class Aufgabe {
   late bool fertig;
   late String Element;
@@ -12,5 +10,3 @@ class Aufgabe {
 
   Map<String, dynamic> toJson() => {'fertig': fertig, 'Element': Element};
 }
-
-
