@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
+      //////////////////////////////////////////////////////////////////////////
       theme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
             focusedBorder: OutlineInputBorder(
@@ -51,6 +52,7 @@ class _MyAppState extends State<MyApp> {
           subtitle1: TextStyle(color: Colors.blue), //Textfarbe für die Textbox
         ),
       ),
+      //////////////////////////////////////////////////////////////////////////
       darkTheme: ThemeData(
         inputDecorationTheme: InputDecorationTheme(
             focusedBorder: OutlineInputBorder(
@@ -63,11 +65,12 @@ class _MyAppState extends State<MyApp> {
                         .white30))), //Farbe der Border bevor man drauf geht
         hintColor: Colors.red,
         primarySwatch: Colors.red,
-        scaffoldBackgroundColor: const Color(0x000000FF),
+        scaffoldBackgroundColor: const Color(0xFF323131),
         textTheme: const TextTheme(
           subtitle1: TextStyle(color: Colors.red), //Textfarbe für die Textbox
         ),
       ),
+      //////////////////////////////////////////////////////////////////////////
       home: Splashscreen(),
       themeMode: themes[theme],
     );

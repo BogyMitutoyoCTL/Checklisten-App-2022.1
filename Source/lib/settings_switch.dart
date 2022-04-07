@@ -16,9 +16,9 @@ class _SettingswitchState extends State<Settingswitch> {
     return Scaffold(
       appBar: AppBar(title: Text("Settings")),
       body: Container(
-        decoration: BoxDecoration(
+        /*decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),
+                image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
