@@ -34,6 +34,8 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Voodoo-List',
       theme: ThemeData(
+        //Todo: Outline sichtbar machen und in den anderen Textfields entfernen
+        hintColor: Colors.blue,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         textTheme: const TextTheme(
@@ -41,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       darkTheme: ThemeData(
+        hintColor: Colors.red,
         primarySwatch: Colors.red,
         scaffoldBackgroundColor: const Color(0x000000FF),
         textTheme: const TextTheme(
