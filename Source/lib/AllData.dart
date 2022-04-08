@@ -55,7 +55,7 @@ class AllData {
   Future<void> removeallchecklists() async {
     var keys = prefs.getKeys();
     for (var key in keys) {
-      await prefs.remove(key);
+      if (key.startsWith("key")) await prefs.remove(key);
     }
   }
 

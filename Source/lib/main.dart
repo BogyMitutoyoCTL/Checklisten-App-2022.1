@@ -8,10 +8,9 @@ import 'checkliste.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //runApp(MyApp());
 
-  await nameok();
-  await khj();
+  var myApp = MyApp();
+  runApp(myApp);
 }
 
 Future<void> khj() async {
@@ -67,7 +66,6 @@ class _MyAppState extends State<MyApp> {
   _MyAppState() {
     appState = this;
     allData = AllData();
-    allData?.loadallchecklists();
     load();
   }
 
@@ -120,6 +118,11 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+  Future<void> loadChecklists() async {
+    await allData?.initInstance();
+    await allData?.loadallchecklists();
+  }
+
 //
   void load() async {
     prefs = await SharedPreferences.getInstance();
@@ -132,5 +135,6 @@ class _MyAppState extends State<MyApp> {
       });
     }
     setState(() {});
+    await loadChecklists();
   }
 }
