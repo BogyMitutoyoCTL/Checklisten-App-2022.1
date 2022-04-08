@@ -61,7 +61,7 @@ class _CreationState extends State<Creation> {
                       textfields +
                       [
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                           child: FloatingActionButton(
                             heroTag: 'btn1',
                             onPressed: neuerlistenteil,
@@ -88,9 +88,17 @@ class _CreationState extends State<Creation> {
       var controller2 = TextEditingController();
       _controllers.add(controller2);
       var textfeld = Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
         child: TextField(
-          decoration: InputDecoration(labelText: '$n. Element'),
+          decoration: InputDecoration(
+            labelText: '$n. Element',
+            enabledBorder: UnderlineInputBorder(
+                //borderSide: BorderSide(),
+                ),
+            focusedBorder: UnderlineInputBorder(
+                //borderSide: BorderSide(),
+                ),
+          ),
           controller: controller2,
           onChanged: elementGeandert,
         ),
