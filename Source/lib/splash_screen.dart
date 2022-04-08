@@ -49,7 +49,8 @@ class _SplashscreenState extends State<Splashscreen> {
                 child: AnimatedTextKit(
                   animatedTexts: [
                     TypewriterAnimatedText(''),
-                    TypewriterAnimatedText('Voodoo-List'),
+                    TypewriterAnimatedText('Voodoo-List',
+                        speed: Duration(milliseconds: 100)),
                   ],
                   onTap: () {
                     print("Tap Event");
