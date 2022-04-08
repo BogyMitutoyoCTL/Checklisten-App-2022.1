@@ -100,6 +100,12 @@ class _MyAppState extends State<MyApp> {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
     theme = eintrag ?? 0;
+    String? _sprache = prefs.getString("language");
+    if (_sprache != null) {
+      setState(() {
+        sprache = Locale(_sprache);
+      });
+    }
     setState(() {});
   }
 }

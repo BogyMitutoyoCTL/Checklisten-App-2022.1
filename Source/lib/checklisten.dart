@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:voodoolist/abhaken.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'alert_klasse.dart';
 import 'checkliste.dart';
 import 'creation.dart';
@@ -52,7 +52,7 @@ class _ChecklistenState extends State<Checklisten> {
       onWillPop: Meldung,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Checklisten'),
+          title: Text(AppLocalizations.of(context)!.appBarChecklists),
           actions: <Widget>[
             IconButton(
               icon: Icon(

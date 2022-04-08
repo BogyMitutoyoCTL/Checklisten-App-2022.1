@@ -72,9 +72,11 @@ class _LanguageState extends State<Language> {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               if (firststart == true) {
+                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
               } else {
+                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
                 Navigator.of(context).pop();
               }
             },
@@ -115,5 +117,9 @@ class _LanguageState extends State<Language> {
       dropdownvalue = value;
     });
   }
+
+  saveLanguage(String code) async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString('language', code);
+  }
 }
-//
