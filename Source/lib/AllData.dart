@@ -13,6 +13,7 @@ class AllData {
   }
 
   void remove(Checkliste checklist) {
+    removeallchecklists();
     checklistenliste.remove(checklist);
     saveallchecklists();
   }
@@ -39,6 +40,22 @@ class AllData {
     for (var counter = 0; counter < checklistenliste.length; counter++) {
       await saveASingleChecklist(
           checklistenliste[counter], key + counter.toString());
+    }
+  }
+
+  Future<void> removeallchecklists() async {
+    var key = "key";
+    var counter = 0;
+    var counter2 = 0;
+    var prefs = await SharedPreferences.getInstance();
+    Checkliste? checkliste2;
+    while (counter2 < checklistenliste.length) {
+      checkliste2 = await loadSingleChecklist(key + counter.toString());
+      if (checkliste2 != null) {
+        counter2++;
+        prefs.remove(key + counter.toString());
+      }
+      counter++;
     }
   }
 
