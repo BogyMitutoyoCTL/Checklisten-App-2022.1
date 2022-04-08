@@ -2,15 +2,41 @@ import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/splash_screen.dart';
+
 import 'AllData.dart';
+import 'checkliste.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //runApp(MyApp());
 
-  /*//await writetest();
-  await readtest();*/
+  await nameok();
+  await khj();
+}
 
-  runApp(MyApp());
+Future<void> khj() async {
+  AllData allData = AllData();
+  await allData.initInstance();
+  await allData.loadallchecklists();
+  print(allData.checklistenliste);
+  await allData.remove(allData.checklistenliste[0]);
+  print(allData.checklistenliste);
+}
+
+Future<void> nameok() async {
+  AllData allData = AllData();
+  await allData.initInstance();
+  await allData.removeallchecklists();
+  var check = new Checkliste("namedercheckliste");
+  check.addNewTask("element1");
+  allData.addNewChecklist(check);
+  var checkliste = new Checkliste("2");
+  checkliste.addNewTask("das funktioniert so lol");
+  allData.addNewChecklist(checkliste);
+  var checki = new Checkliste("noname");
+  check.addNewTask("neues element");
+  allData.addNewChecklist(checki);
+  await allData.saveallchecklists();
 }
 
 class MyApp extends StatefulWidget {

@@ -5,6 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'checkliste.dart';
 
 class AllData {
+  late SharedPreferences prefs;
+
+  Future<void> initInstance() async {
+    prefs = await SharedPreferences.getInstance();
+  }
+
   List<Checkliste> checklistenliste = [];
 
   void addNewChecklist(Checkliste checklist) {
@@ -12,21 +18,18 @@ class AllData {
     saveallchecklists();
   }
 
-  void remove(Checkliste checklist) {
-    removeallchecklists();
+  Future<void> remove(Checkliste checklist) async {
     checklistenliste.remove(checklist);
-    saveallchecklists();
+    await saveallchecklists();
   }
 
   Future<void> saveASingleChecklist(Checkliste checkliste, String key) async {
     String checkliststring = jsonEncode(checkliste.toMap());
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(key, checkliststring);
+    await prefs.setString(key, checkliststring);
   }
 
   Future<Checkliste?> loadSingleChecklist(String key) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var name = prefs.getString(key);
+    var name = await prefs.getString(key);
     if (name != null) {
       var check = jsonDecode(name);
       var checklist = fromMapToChecklist(check);
@@ -36,41 +39,36 @@ class AllData {
   }
 
   Future<void> saveallchecklists() async {
+    await removeallchecklists();
     var key = "key";
+    List<MapEntry<String, Checkliste>> zuordnung = [];
     for (var counter = 0; counter < checklistenliste.length; counter++) {
-      await saveASingleChecklist(
-          checklistenliste[counter], key + counter.toString());
+      zuordnung
+          .add(MapEntry(key + counter.toString(), checklistenliste[counter]));
+    }
+
+    for (MapEntry<String, Checkliste> pair in zuordnung) {
+      await saveASingleChecklist(pair.value, pair.key);
     }
   }
 
   Future<void> removeallchecklists() async {
-    var key = "key";
-    var counter = 0;
-    var counter2 = 0;
-    var prefs = await SharedPreferences.getInstance();
-    Checkliste? checkliste2;
-    while (counter2 < checklistenliste.length) {
-      checkliste2 = await loadSingleChecklist(key + counter.toString());
-      if (checkliste2 != null) {
-        counter2++;
-        prefs.remove(key + counter.toString());
-      }
-      counter++;
+    var keys = prefs.getKeys();
+    for (var key in keys) {
+      await prefs.remove(key);
     }
   }
 
   Future<void> loadallchecklists() async {
-    var key = "key";
-    var counter = 0;
-    Checkliste? loadSingleChecklist2;
-    do {
-      loadSingleChecklist2 =
-          await loadSingleChecklist(key + counter.toString());
-
-      if (loadSingleChecklist2 != null) {
-        checklistenliste.add(loadSingleChecklist2);
+    checklistenliste = [];
+    var keys = prefs.getKeys();
+    for (var key in keys) {
+      if (key.startsWith("key")) {
+        Checkliste? loadSingleChecklist2 = await loadSingleChecklist(key);
+        if (loadSingleChecklist2 != null) {
+          checklistenliste.add(loadSingleChecklist2);
+        }
       }
-      counter++;
-    } while (loadSingleChecklist2 != null);
+    }
   }
 }
