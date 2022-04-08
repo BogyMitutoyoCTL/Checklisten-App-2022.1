@@ -60,10 +60,13 @@ class _CreationState extends State<Creation> {
                       ]) +
                       textfields +
                       [
-                        FloatingActionButton(
-                          heroTag: 'btn1',
-                          onPressed: neuerlistenteil,
-                          child: Icon(Icons.add_circle_outline),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                          child: FloatingActionButton(
+                            heroTag: 'btn1',
+                            onPressed: neuerlistenteil,
+                            child: Icon(Icons.add_circle_outline),
+                          ),
                         )
                       ]),
             ),

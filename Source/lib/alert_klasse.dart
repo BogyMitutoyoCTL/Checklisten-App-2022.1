@@ -17,7 +17,13 @@ class AlertButton {
       context: context,
       builder: (context) => AlertDialog(
         title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
+        content: new Text(
+          'Do you want to exit the App?',
+          style: TextStyle(
+            fontWeight: FontWeight.w300,
+            color: Colors.grey.shade700,
+          ),
+        ),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
