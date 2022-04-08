@@ -25,8 +25,10 @@ class _ChecklistenState extends State<Checklisten> {
     for (var checkliste in checklistenliste) {
       var button = TextButton(
           onPressed: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => Abhaken(checkliste)));
+            Navigator.of(context)
+                .push(MaterialPageRoute(
+                    builder: (context) => Abhaken(checkliste)))
+                .then((value) => setState(() {}));
           },
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Container(
