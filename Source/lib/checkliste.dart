@@ -1,19 +1,22 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-import 'package:voodoolist/checklisten.dart';
-
 import 'aufgabe.dart';
-import 'abhaken.dart';
 
 class Checkliste {
   late String titel;
-  late List<Aufgabe> aufgaben_liste;
+  List<Aufgabe> aufgaben_liste = [];
   late List<bool> value;
 
-  Checkliste(String titel, List<Aufgabe> aufgaben_liste) {
+  Checkliste(String titel) {
     this.titel = titel;
-    this.aufgaben_liste = aufgaben_liste;
+  }
+
+  void addNewTask(String element) {
+    aufgaben_liste.add(Aufgabe(false, element));
+  }
+
+  void addTask(Aufgabe aufgabe) {
+    aufgaben_liste.add(aufgabe);
   }
 
   void checklistenReset() {
@@ -38,8 +41,8 @@ Checkliste fromMapToChecklist(var checkliste_as_string) {
       key_in_klammern.substring(1, key_in_klammern.length - 1);
 
   var checklist_as_map = checkliste_as_string[checkliste_name];
-  List<Aufgabe> aufgaben_liste = [];
 
+  var checkliste = new Checkliste(checkliste_name);
   for (String aufgabe_as_map in checklist_as_map) {
     var fertig = false;
     var element_from_aufgabe;
@@ -51,7 +54,8 @@ Checkliste fromMapToChecklist(var checkliste_as_string) {
       element_from_aufgabe =
           aufgabe_as_map.substring(27, aufgabe_as_map.length - 2);
     }
-    aufgaben_liste.add(Aufgabe(fertig, element_from_aufgabe));
+    checkliste.addTask(Aufgabe(fertig, element_from_aufgabe));
   }
-  return new Checkliste(checkliste_name, aufgaben_liste);
+
+  return checkliste;
 }

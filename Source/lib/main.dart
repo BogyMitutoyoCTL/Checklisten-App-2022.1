@@ -3,10 +3,35 @@ import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/splash_screen.dart';
 
-void main() {
+import 'AllData.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /*//await writetest();
+  await readtest();*/
+
   runApp(MyApp());
 }
+
+/*Future<void> readtest() async {
+  AllData a = new AllData();
+  await a.loadallchecklists();
+  print(a.checklistenliste.length);
+  print(a.checklistenliste[0].titel);
+  print(a.checklistenliste[1].titel);
+}
+
+Future<void> writetest() async {
+  AllData a = new AllData();
+  var checkliste = new Checkliste("test");
+  checkliste.addNewTask("zuzuu");
+  a.addNewChecklist(checkliste);
+  var checkliste2 = new Checkliste("test2");
+  checkliste2.addNewTask("zuzuu2");
+  a.addNewChecklist(checkliste2);
+  await a.saveallchecklists();
+}*/
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
@@ -15,7 +40,8 @@ class MyApp extends StatefulWidget {
   State<MyApp> createState() => _MyAppState();
 }
 
-_MyAppState? appState;
+_MyAppState? appState = null;
+AllData? allData = null;
 
 class _MyAppState extends State<MyApp> {
   late SharedPreferences prefs;
@@ -26,6 +52,8 @@ class _MyAppState extends State<MyApp> {
 
   _MyAppState() {
     appState = this;
+    allData = AllData();
+    allData?.loadallchecklists();
     load();
   }
 
