@@ -56,7 +56,10 @@ class _ChooseThemeState extends State<ChooseTheme> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black, // Background color
                     ),
-                    child: Text("Dark-Mode"),
+                    child: Text(
+                      "Dark-Mode",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ),

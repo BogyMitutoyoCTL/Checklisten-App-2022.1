@@ -55,10 +55,7 @@ class _SettingswitchState extends State<Settingswitch> {
           Navigator.of(context)
               .pop(MaterialPageRoute(builder: (context) => Checklisten()));
         },
-        child: Text(AppLocalizations.of(context)!.mainScreenButtomButton,
-            style: TextStyle(fontSize: 23)),
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black87,
+        child: Icon(Icons.arrow_back, size: 40),
         elevation: 0,
       ),
     );

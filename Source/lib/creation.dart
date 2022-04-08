@@ -38,6 +38,7 @@ class _CreationState extends State<Creation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(AppLocalizations.of(context)!.appBarCreateChecklist),
       ),
       body: SingleChildScrollView(
