@@ -6,7 +6,7 @@
   "mainScreenButtomButton": "Zurück",
   "languageSettings": "Wähle deine Sprache",
   "appBarChecklistname": "Name der Checkliste ",
-  "hintText": "Name der Liste !Max 24 Zeichen!",
+  "hintText": "Name der Liste !max. 24 Zeichen!",
   "appBarCreateChecklist": "NEUE Checklisten"
 
 }
