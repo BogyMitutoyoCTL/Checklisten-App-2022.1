@@ -75,8 +75,7 @@ class _LanguageState extends State<Language> {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
               } else {
-                Navigator.of(context).pop(
-                    MaterialPageRoute(builder: (context) => Settingswitch()));
+                Navigator.of(context).pop();
               }
             },
             child: Icon(Icons.arrow_forward, size: 40),
