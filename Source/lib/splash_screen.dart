@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -36,22 +37,28 @@ class _SplashscreenState extends State<Splashscreen> {
 
             /* color: Colors.white,*/
           ),
-          Text("VOODOO",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 50,
-                wordSpacing: 15,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold,
-                backgroundColor: Colors.black,
-              )),
-          Text("LIST",
-              style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 50,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  backgroundColor: Colors.black)),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(75, 100, 0, 0),
+            child: SizedBox(
+              width: 250.0,
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: 'Agne',
+                ),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(''),
+                    TypewriterAnimatedText('Voodoo-List',
+                        speed: Duration(milliseconds: 100)),
+                  ],
+                  onTap: () {
+                    print("Tap Event");
+                  },
+                ),
+              ),
+            ),
+          ),
           CountDownTimer(whenTimeExpires: exitSplashScreen)
         ],
       ),

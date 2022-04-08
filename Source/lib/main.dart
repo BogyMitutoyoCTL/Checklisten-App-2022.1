@@ -56,6 +56,14 @@ class _MyAppState extends State<MyApp> {
 
   List themes = [ThemeMode.dark, ThemeMode.light, ThemeMode.system];
 
+  Locale sprache = Locale('de', '');
+
+  changeLanguage(Locale neueSprache) {
+    setState(() {
+      sprache = neueSprache;
+    });
+  }
+
   _MyAppState() {
     appState = this;
     allData = AllData();
@@ -66,6 +74,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: sprache,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
@@ -81,7 +90,6 @@ class _MyAppState extends State<MyApp> {
             )),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blue.shade900))),
-        //Todo: Outline sichtbar machen und in den anderen Textfields entfernen
         hintColor: Colors.blue,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
@@ -117,6 +125,12 @@ class _MyAppState extends State<MyApp> {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
     theme = eintrag ?? 0;
+    String? _sprache = prefs.getString("language");
+    if (_sprache != null) {
+      setState(() {
+        sprache = Locale(_sprache);
+      });
+    }
     setState(() {});
   }
 }

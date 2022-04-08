@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checklisten.dart';
+import 'main.dart';
 
 import 'alert_klasse.dart';
 import 'choose_theme.dart';
@@ -20,7 +22,7 @@ class _LanguageState extends State<Language> {
   @override
   void initState() {
     super.initState();
-    loadFile();
+    // loadFile();
   }
 
   String dropdownvalue = 'English';
@@ -45,9 +47,6 @@ class _LanguageState extends State<Language> {
       onWillPop: Meldung,
       child: Scaffold(
           body: Container(
-            /*decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -62,12 +61,7 @@ class _LanguageState extends State<Language> {
                     value: dropdownvalue,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: items.map(convertStringToMenuItem).toList(),
-                    onChanged: (dynamic newValue) {
-                      //The '?' is unnecessary because 'dynamic' is nullable without it. --> before: dynamic? newValue
-                      setState(() {
-                        dropdownvalue = newValue!;
-                      });
-                    },
+                    onChanged: uebersetzen,
                   ),
                 ]),
               ]),
@@ -75,12 +69,14 @@ class _LanguageState extends State<Language> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
+              loadFile();
               if (firststart == true) {
+                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
               } else {
-                Navigator.of(context).pop(
-                    MaterialPageRoute(builder: (context) => Settingswitch()));
+                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
+                Navigator.of(context).pop();
               }
             },
             child: Icon(Icons.arrow_forward, size: 40),
@@ -106,5 +102,23 @@ class _LanguageState extends State<Language> {
   Future<bool> Meldung() async {
     var warnSignal = AlertButton();
     return await warnSignal.beforeExit(context);
+  }
+
+  void uebersetzen(value) {
+    if (value == 'English') {
+      Locale englisch = Locale('en', '');
+      appState?.changeLanguage(englisch);
+    } else {
+      Locale deutsch = Locale('de', '');
+      appState?.changeLanguage(deutsch);
+    }
+    setState(() {
+      dropdownvalue = value;
+    });
+  }
+
+  saveLanguage(String code) async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setString('language', code);
   }
 }

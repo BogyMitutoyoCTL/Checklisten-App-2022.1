@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checklisten.dart';
 import 'package:voodoolist/main.dart';
 
 import 'main.dart';
@@ -26,9 +27,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      /*decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -46,7 +44,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   ),
                 ),
               ),
-              //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
               Center(
                 child: SizedBox(
                   width: 200,
@@ -54,7 +52,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   child: ElevatedButton(
                     onPressed: onPressed1,
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.black, // Background color
+                      primary: Colors.black45, // Background color for Button
                     ),
                     child: Text(
                       "Dark-Mode",
@@ -63,7 +61,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   ),
                 ),
               ),
-              //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
               Center(
                 child: SizedBox(
                   width: 200,
@@ -71,13 +69,13 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   child: ElevatedButton(
                     onPressed: onPressed2,
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.grey, // Background color
+                      primary: Colors.grey, // Background color for Button
                     ),
                     child: Text("Light-Mode"),
                   ),
                 ),
               ),
-              //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
               Center(
                 child: SizedBox(
                   width: 200,
@@ -85,13 +83,12 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   child: ElevatedButton(
                       onPressed: onPressed3,
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue, // Background color
-                        //Todo: -System-Mode Farbe anpassen ans System Theme
+                        primary: Colors.blue, // Background color for Button
                       ),
                       child: Text("System-Mode")),
                 ),
               ),
-              //////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
             ]),
           ),
         ],
@@ -132,7 +129,8 @@ class _ChooseThemeState extends State<ChooseTheme> {
     }
     appState?.load();
     if (firststart == true) {
-      Navigator.of(context).pop();
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context).pop();
     }
