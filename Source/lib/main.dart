@@ -30,6 +30,14 @@ class _MyAppState extends State<MyApp> {
 
   List themes = [ThemeMode.dark, ThemeMode.light, ThemeMode.system];
 
+  Locale sprache = Locale('de', '');
+
+  changeLanguage(Locale neueSprache) {
+    setState(() {
+      sprache = neueSprache;
+    });
+  }
+
   _MyAppState() {
     appState = this;
     allData = AllData();
@@ -40,6 +48,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: sprache,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,

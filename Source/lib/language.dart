@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'main.dart';
 
 import 'alert_klasse.dart';
 import 'choose_theme.dart';
@@ -62,12 +63,7 @@ class _LanguageState extends State<Language> {
                     value: dropdownvalue,
                     icon: const Icon(Icons.keyboard_arrow_down),
                     items: items.map(convertStringToMenuItem).toList(),
-                    onChanged: (dynamic newValue) {
-                      //The '?' is unnecessary because 'dynamic' is nullable without it. --> before: dynamic? newValue
-                      setState(() {
-                        dropdownvalue = newValue!;
-                      });
-                    },
+                    onChanged: uebersetzen,
                   ),
                 ]),
               ]),
@@ -106,5 +102,15 @@ class _LanguageState extends State<Language> {
   Future<bool> Meldung() async {
     var warnSignal = AlertButton();
     return await warnSignal.beforeExit(context);
+  }
+
+  void uebersetzen(value) {
+    if (value == 'English') {
+      Locale englisch = Locale('en', '');
+      appState?.changeLanguage(englisch);
+    } else {
+      Locale deutsch = Locale('de', '');
+      appState?.changeLanguage(deutsch);
+    }
   }
 }
