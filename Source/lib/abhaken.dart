@@ -16,12 +16,8 @@ class Abhaken extends StatefulWidget {
 }
 
 class _AbhakenState extends State<Abhaken> {
-  var first = true;
-  Map<String, bool> values = {};
-
   @override
   Widget build(BuildContext context) {
-    loadData();
     return new Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: new AppBar(
@@ -36,9 +32,8 @@ class _AbhakenState extends State<Abhaken> {
               heroTag: 'btn1',
               child: Icon(Icons.arrow_back, size: 40),
               elevation: 0,
-              onPressed: () {
-                first = true;
-                //TODO: Checkliste Speichern
+              onPressed: () async {
+                await save();
                 Navigator.of(context).pop();
               },
             ),
@@ -51,8 +46,6 @@ class _AbhakenState extends State<Abhaken> {
               elevation: 0,
               onPressed: () {
                 allData?.remove(widget.checkliste);
-                first = true;
-                //hier die funktion
                 Navigator.of(context).pop();
               },
             ),
@@ -60,13 +53,13 @@ class _AbhakenState extends State<Abhaken> {
         ],
       ),
       body: new ListView(
-        children: values.keys.map((String key) {
+        children: widget.checkliste.aufgaben_liste.map((Aufgabe aufgabe) {
           return new CheckboxListTile(
-            title: new Text(key),
-            value: values[key],
+            title: new Text(aufgabe.Element),
+            value: aufgabe.fertig,
             onChanged: (bool? value) {
               setState(() {
-                values[key] = value!;
+                aufgabe.fertig = value!;
               });
             },
           );
@@ -75,12 +68,7 @@ class _AbhakenState extends State<Abhaken> {
     );
   }
 
-  void loadData() {
-    if (first) {
-      for (Aufgabe aufgabe in widget.checkliste.aufgaben_liste) {
-        values[aufgabe.Element] = aufgabe.fertig;
-      }
-      first = false;
-    }
+  Future<void> save() async {
+    await allData?.saveallchecklists();
   }
 }
