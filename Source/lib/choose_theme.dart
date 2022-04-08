@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checklisten.dart';
 import 'package:voodoolist/main.dart';
 
 import 'main.dart';
@@ -128,7 +129,8 @@ class _ChooseThemeState extends State<ChooseTheme> {
     }
     appState?.load();
     if (firststart == true) {
-      Navigator.of(context).pop();
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => Checklisten()));
     } else if (firststart == false) {
       Navigator.of(context).pop();
     }

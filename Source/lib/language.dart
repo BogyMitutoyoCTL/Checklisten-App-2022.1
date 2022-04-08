@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/checklisten.dart';
 import 'main.dart';
 
 import 'alert_klasse.dart';
@@ -21,7 +22,7 @@ class _LanguageState extends State<Language> {
   @override
   void initState() {
     super.initState();
-    loadFile();
+    // loadFile();
   }
 
   String dropdownvalue = 'English';
@@ -68,6 +69,7 @@ class _LanguageState extends State<Language> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
+              loadFile();
               if (firststart == true) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
