@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CountDownTimer extends StatefulWidget {
   const CountDownTimer({
     Key? key,
-    int secondsRemaining = 3,
+    int secondsRemaining = 2,
     required this.whenTimeExpires,
   })  : secondsRemaining = secondsRemaining,
         super(key: key);
