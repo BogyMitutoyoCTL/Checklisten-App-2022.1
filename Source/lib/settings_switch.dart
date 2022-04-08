@@ -58,7 +58,7 @@ class _SettingswitchState extends State<Settingswitch> {
         child: Text(AppLocalizations.of(context)!.mainScreenButtomButton,
             style: TextStyle(fontSize: 23)),
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black87,
+        foregroundColor: Colors.grey,
         elevation: 0,
       ),
     );
