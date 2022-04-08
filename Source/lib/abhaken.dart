@@ -24,14 +24,29 @@ class _AbhakenState extends State<Abhaken> {
     return new Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       appBar: new AppBar(title: new Text(widget.checkliste.titel)),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_back, size: 40),
-        elevation: 0,
-        onPressed: () {
-          first = true;
-          //TODO: Checkliste Speichern
-          Navigator.of(context).pop();
-        },
+      floatingActionButton: Row(
+        children: [
+          FloatingActionButton(
+            heroTag: 'kkk',
+            child: Icon(Icons.arrow_back, size: 40),
+            elevation: 0,
+            onPressed: () {
+              first = true;
+              //TODO: Checkliste Speichern
+              Navigator.of(context).pop();
+            },
+          ),
+          FloatingActionButton(
+            heroTag: 'kk',
+            child: Icon(Icons.delete_forever, size: 40),
+            elevation: 0,
+            onPressed: () {
+              first = true;
+              //hier die funktion
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       ),
       body: new ListView(
         children: values.keys.map((String key) {
