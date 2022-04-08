@@ -24,7 +24,9 @@ class _AbhakenState extends State<Abhaken> {
     loadData();
     return new Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      appBar: new AppBar(title: new Text(widget.checkliste.titel)),
+      appBar: new AppBar(
+          automaticallyImplyLeading: false,
+          title: new Text(widget.checkliste.titel)),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
