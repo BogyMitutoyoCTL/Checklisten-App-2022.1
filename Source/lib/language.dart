@@ -46,9 +46,6 @@ class _LanguageState extends State<Language> {
       onWillPop: Meldung,
       child: Scaffold(
           body: Container(
-            /*decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/grau.png"), fit: BoxFit.cover)),*/
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
