@@ -20,6 +20,7 @@ class AlertButton {
         content: new Text(
           'Do you want to exit the App?',
           style: TextStyle(
+            //better control over the alert
             fontWeight: FontWeight.w300,
             color: Colors.grey.shade700,
           ),
