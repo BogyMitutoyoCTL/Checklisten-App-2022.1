@@ -32,7 +32,7 @@ class _CreationState extends State<Creation> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var name = prefs.getString(key);
     if (name != null) {
-      var check = jsonDecode(name!);
+      var check = jsonDecode(name);
       var checklist = fromMapToChecklist(check);
       // TODO: the variable checklist is not used
     }
@@ -74,7 +74,7 @@ class _CreationState extends State<Creation> {
                       textfields +
                       [
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: FloatingActionButton(
                             heroTag: 'btn1',
                             onPressed: neuerlistenteil,
@@ -101,9 +101,9 @@ class _CreationState extends State<Creation> {
       var controller2 = TextEditingController();
       _controllers.add(controller2);
       var textfeld = Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: TextField(
-          decoration: InputDecoration(labelText: '$n. Element'),
+          //decoration: InputDecoration(labelText: '$n. Element'),
           controller: controller2,
           onChanged: elementGeandert,
         ),
