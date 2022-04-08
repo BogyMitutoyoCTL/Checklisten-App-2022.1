@@ -5,8 +5,8 @@
   "mainScreenThemeSettings": "Themeneintellung",
   "mainScreenButtomButton": "Zurück",
   "languageSettings": "Wähle deine Sprache",
-  "appBarChecklistname": "Name der Checkliste",
-  "hintText": "Name der Liste",
+  "appBarChecklistname": "Name der Checkliste ",
+  "hintText": "Name der Liste !Max 24 Zeichen!",
   "appBarCreateChecklist": "NEUE Checklisten"
 
 }
