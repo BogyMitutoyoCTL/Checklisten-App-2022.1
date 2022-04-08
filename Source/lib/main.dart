@@ -64,7 +64,6 @@ class _MyAppState extends State<MyApp> {
             )),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blue.shade900))),
-        //Todo: Outline sichtbar machen und in den anderen Textfields entfernen
         hintColor: Colors.blue,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
