@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'AllData.dart';
 import 'checkliste.dart';
 import 'main.dart';
 
@@ -117,6 +118,7 @@ class _CreationState extends State<Creation> {
   void save_and_navigate() {
     Checkliste checkliste = getChecklistFromInput();
     allData?.addNewChecklist(checkliste);
+    AllData().saveallchecklists;
     Navigator.of(context).pop();
   }
 }

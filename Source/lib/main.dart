@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voodoolist/checkliste.dart';
 import 'package:voodoolist/splash_screen.dart';
 
 import 'AllData.dart';
@@ -9,13 +8,13 @@ import 'AllData.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  //await writetest();
-  await readtest();
+  /*//await writetest();
+  await readtest();*/
 
-  // runApp(MyApp());
+  runApp(MyApp());
 }
 
-Future<void> readtest() async {
+/*Future<void> readtest() async {
   AllData a = new AllData();
   await a.loadallchecklists();
   print(a.checklistenliste.length);
@@ -32,7 +31,7 @@ Future<void> writetest() async {
   checkliste2.addNewTask("zuzuu2");
   a.addNewChecklist(checkliste2);
   await a.saveallchecklists();
-}
+}*/
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);

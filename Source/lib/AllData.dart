@@ -40,7 +40,6 @@ class AllData {
   Future<void> loadallchecklists() async {
     var key = "key";
     var counter = 0;
-    checklistenliste.clear();
     Checkliste? loadSingleChecklist2;
     do {
       loadSingleChecklist2 =
