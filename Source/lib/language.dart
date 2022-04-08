@@ -108,15 +108,12 @@ class _LanguageState extends State<Language> {
     if (value == 'English') {
       Locale englisch = Locale('en', '');
       appState?.changeLanguage(englisch);
-      setState(() {
-        dropdownvalue = value;
-      });
     } else {
       Locale deutsch = Locale('de', '');
       appState?.changeLanguage(deutsch);
-      setState(() {
-        dropdownvalue = value;
-      });
     }
+    setState(() {
+      dropdownvalue = value;
+    });
   }
 }
