@@ -12,6 +12,11 @@ class AllData {
     saveallchecklists();
   }
 
+  void remove(Checkliste checklist) {
+    checklistenliste.remove(checklist);
+    saveallchecklists();
+  }
+
   Future<void> saveASingleChecklist(Checkliste checkliste, String key) async {
     String checkliststring = jsonEncode(checkliste.toMap());
     SharedPreferences prefs = await SharedPreferences.getInstance();

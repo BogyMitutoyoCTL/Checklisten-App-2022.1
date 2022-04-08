@@ -28,9 +28,16 @@ class _ChecklistenState extends State<Checklisten> {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => Abhaken(checkliste)));
           },
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text(checkliste.titel)]));
+          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+                height: 40,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(checkliste.titel, style: TextStyle(fontSize: 20)),
+                  ],
+                ))
+          ]));
       Checklistenbutton.add(button);
     }
   }
