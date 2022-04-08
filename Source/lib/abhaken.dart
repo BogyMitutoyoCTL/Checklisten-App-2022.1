@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checkliste.dart';
+
 import 'aufgabe.dart';
+import 'main.dart';
 
 class Abhaken extends StatefulWidget {
   late Checkliste checkliste;
@@ -22,16 +23,39 @@ class _AbhakenState extends State<Abhaken> {
   Widget build(BuildContext context) {
     loadData();
     return new Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: new AppBar(title: new Text(widget.checkliste.titel)),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_back, size: 40),
-        elevation: 0,
-        onPressed: () {
-          first = true;
-          //TODO: Checkliste Speichern
-          Navigator.of(context).pop();
-        },
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: FloatingActionButton(
+              heroTag: 'btn1',
+              child: Icon(Icons.arrow_back, size: 40),
+              elevation: 0,
+              onPressed: () {
+                first = true;
+                //TODO: Checkliste Speichern
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: FloatingActionButton(
+              heroTag: 'btn2',
+              child: Icon(Icons.delete_forever, size: 40),
+              elevation: 0,
+              onPressed: () {
+                allData?.remove(widget.checkliste);
+                first = true;
+                //hier die funktion
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
+        ],
       ),
       body: new ListView(
         children: values.keys.map((String key) {

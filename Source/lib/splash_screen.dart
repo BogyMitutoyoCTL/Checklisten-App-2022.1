@@ -38,16 +38,19 @@ class _SplashscreenState extends State<Splashscreen> {
           ),
           Text("VOODOO",
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.grey,
                 fontSize: 50,
+                wordSpacing: 15,
+                fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold,
                 backgroundColor: Colors.black,
               )),
           Text("LIST",
               style: TextStyle(
-                  color: Colors.white54,
+                  color: Colors.grey,
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
                   backgroundColor: Colors.black)),
           CountDownTimer(whenTimeExpires: exitSplashScreen)
         ],
