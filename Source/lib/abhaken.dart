@@ -25,6 +25,7 @@ class _AbhakenState extends State<Abhaken> {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       appBar: new AppBar(title: new Text(widget.checkliste.titel)),
       floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
             heroTag: 'kkk',
