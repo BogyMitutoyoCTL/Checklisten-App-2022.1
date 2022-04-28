@@ -11,5 +11,9 @@
   "settingsChooseTheme": "Choose your theme:",
   "settingsDarkMode": "Dark-Mode",
   "settingsLightMode": "Light-Mode",
-  "settingsSystemMode": "System-Mode"
+  "settingsSystemMode": "System-Mode",
+  "exitAreYouSure": "Are you sure?",
+  "exitDoYouWantToExit": "Do you want to exit the App?",
+  "exitNo": "No",
+  "exitYes": "Yes"
 }

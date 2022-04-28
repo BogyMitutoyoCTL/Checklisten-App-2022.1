@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 class AlertButton {
   Future<bool> beforeExit(BuildContext context) async {
@@ -16,9 +17,9 @@ class AlertButton {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: new Text('Are you sure?'),
+        title: new Text(AppLocalizations.of(context)!.exitAreYouSure),
         content: new Text(
-          'Do you want to exit the App?',
+          AppLocalizations.of(context)!.exitDoYouWantToExit,
           style: TextStyle(
             //better control over the alert
             fontWeight: FontWeight.w300,
@@ -29,12 +30,12 @@ class AlertButton {
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
             //<-- SEE HERE
-            child: new Text('No'),
+            child: new Text(AppLocalizations.of(context)!.exitNo),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
             // <-- SEE HERE
-            child: new Text('Yes'),
+            child: new Text(AppLocalizations.of(context)!.exitYes),
           ),
         ],
       ),
