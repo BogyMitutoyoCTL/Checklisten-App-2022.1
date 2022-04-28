@@ -57,7 +57,6 @@ class _LanguageState extends State<Language> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              saveLanguage();
               if (allData.firstStart) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
@@ -81,14 +80,12 @@ class _LanguageState extends State<Language> {
   void uebersetzen(value) {
     String code = value == 'English' ? 'en' : 'de';
     allData.language = code;
+    allData.save();
+
     Locale newLanguage = Locale(code, '');
     appState?.changeLanguage(newLanguage);
     setState(() {
       dropdownvalue = value;
     });
-  }
-
-  saveLanguage() {
-    allData.save();
   }
 }
