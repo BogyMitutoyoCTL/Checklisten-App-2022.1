@@ -13,7 +13,7 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
-  String dropdownvalue = 'English';
+  String dropdownvalue = {"en": 'English', "de": "German"}[allData.language]!;
 
   // List of items in our dropdown menu
   var items = [
@@ -57,8 +57,7 @@ class _LanguageState extends State<Language> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // loadFile();
-              saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
+              saveLanguage();
               if (allData.firstStart) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
@@ -80,20 +79,16 @@ class _LanguageState extends State<Language> {
   }
 
   void uebersetzen(value) {
-    if (value == 'English') {
-      Locale englisch = Locale('en', '');
-      appState?.changeLanguage(englisch);
-    } else {
-      Locale deutsch = Locale('de', '');
-      appState?.changeLanguage(deutsch);
-    }
+    String code = value == 'English' ? 'en' : 'de';
+    allData.language = code;
+    Locale newLanguage = Locale(code, '');
+    appState?.changeLanguage(newLanguage);
     setState(() {
       dropdownvalue = value;
     });
   }
 
-  saveLanguage(String code) async {
-    allData.language = code;
+  saveLanguage() {
     allData.save();
   }
 }
