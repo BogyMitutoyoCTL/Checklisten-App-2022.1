@@ -29,10 +29,10 @@ class AllData {
   }
 
   Future<Checkliste?> loadSingleChecklist(String key) async {
-    var name = await prefs.getString(key);
-    if (name != null) {
-      var check = jsonDecode(name);
-      var checklist = fromMapToChecklist(check);
+    var json = await prefs.getString(key);
+    if (json != null) {
+      var map = jsonDecode(json);
+      var checklist = fromMapToChecklist(map);
       return checklist;
     }
     return null;

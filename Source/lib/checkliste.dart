@@ -35,26 +35,16 @@ class Checkliste {
   }
 }
 
-Checkliste fromMapToChecklist(var checkliste_as_string) {
-  var key_in_klammern = checkliste_as_string.keys.toString();
-  var checkliste_name =
-      key_in_klammern.substring(1, key_in_klammern.length - 1);
-
-  var checklist_as_map = checkliste_as_string[checkliste_name];
+Checkliste fromMapToChecklist(var map) {
+  var checkliste_name = map.keys.first;
+  var checkliste_eintraege = map[checkliste_name];
 
   var checkliste = new Checkliste(checkliste_name);
-  for (String aufgabe_as_map in checklist_as_map) {
-    var fertig = false;
-    var element_from_aufgabe;
-    if (aufgabe_as_map.substring(10, 11) == 't') {
-      fertig = true;
-      element_from_aufgabe =
-          aufgabe_as_map.substring(26, aufgabe_as_map.length - 2);
-    } else {
-      element_from_aufgabe =
-          aufgabe_as_map.substring(27, aufgabe_as_map.length - 2);
-    }
-    checkliste.addTask(Aufgabe(fertig, element_from_aufgabe));
+  for (String json in checkliste_eintraege) {
+    var aufgabe = jsonDecode(json);
+    var fertig = aufgabe["fertig"];
+    var beschreibung = aufgabe["Element"];
+    checkliste.addTask(Aufgabe(fertig, beschreibung));
   }
 
   return checkliste;
