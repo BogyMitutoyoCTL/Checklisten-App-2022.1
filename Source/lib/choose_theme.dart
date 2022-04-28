@@ -40,7 +40,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: onPressed1,
+                    onPressed: onDarkThemeSelected,
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black45, // Background color for Button
                     ),
@@ -57,7 +57,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: onPressed2,
+                    onPressed: onLightThemeSelected,
                     style: ElevatedButton.styleFrom(
                       primary: Colors.grey, // Background color for Button
                     ),
@@ -72,7 +72,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                   width: 200,
                   height: 50,
                   child: ElevatedButton(
-                      onPressed: onPressed3,
+                      onPressed: onSystemThemeSelected,
                       style: ElevatedButton.styleFrom(
                         primary: Colors.blue, // Background color for Button
                       ),
@@ -88,29 +88,22 @@ class _ChooseThemeState extends State<ChooseTheme> {
     ));
   }
 
-  void onPressed1() {
-    setState(() {
-      allData.themeWahl = 0;
-    });
-    saveFile();
+  void onDarkThemeSelected() {
+    saveFile(0);
   }
 
-  void onPressed2() {
-    setState(() {
-      allData.themeWahl = 1;
-    });
-    saveFile();
+  void onLightThemeSelected() {
+    saveFile(1);
   }
 
-  void onPressed3() {
-    setState(() {
-      allData.themeWahl = 2;
-    });
-    saveFile();
+  void onSystemThemeSelected() {
+    saveFile(2);
   }
 
-  void saveFile() async {
-    allData.save();
+  void saveFile(int theme) {
+    setState(() {
+      allData.themeWahl = theme;
+    });
     appState?.updateTheme();
     if (allData.firstStart) {
       Navigator.of(context)
@@ -118,5 +111,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
     } else {
       Navigator.of(context).pop();
     }
+    allData.firstStart = false;
+    allData.save();
   }
 }
