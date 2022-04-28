@@ -123,7 +123,6 @@ class _MyAppState extends State<MyApp> {
     await allData?.loadallchecklists();
   }
 
-//
   void load() async {
     prefs = await SharedPreferences.getInstance();
     int? eintrag = prefs.getInt("themewahl");
