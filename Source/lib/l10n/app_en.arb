@@ -7,5 +7,9 @@
   "languageSettings": "Choose your language",
   "appBarChecklistname": "Name of the checklists ",
   "hintText": "Name of the list !max. 24 characters!",
-  "appBarCreateChecklist": "NEW Checklist"
+  "appBarCreateChecklist": "NEW Checklist",
+  "settingsChooseTheme": "Choose your theme:",
+  "settingsDarkMode": "Dark-Mode",
+  "settingsLightMode": "Light-Mode",
+  "settingsSystemMode": "System-Mode"
 }

@@ -27,7 +27,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
-                  "Choose your theme:",
+                  AppLocalizations.of(context)!.settingsChooseTheme,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w100,
@@ -45,7 +45,7 @@ class _ChooseThemeState extends State<ChooseTheme> {
                       primary: Colors.black45, // Background color for Button
                     ),
                     child: Text(
-                      "Dark-Mode",
+                      AppLocalizations.of(context)!.settingsDarkMode,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -61,7 +61,8 @@ class _ChooseThemeState extends State<ChooseTheme> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.grey, // Background color for Button
                     ),
-                    child: Text("Light-Mode"),
+                    child:
+                        Text(AppLocalizations.of(context)!.settingsLightMode),
                   ),
                 ),
               ),
@@ -75,7 +76,8 @@ class _ChooseThemeState extends State<ChooseTheme> {
                       style: ElevatedButton.styleFrom(
                         primary: Colors.blue, // Background color for Button
                       ),
-                      child: Text("System-Mode")),
+                      child: Text(
+                          AppLocalizations.of(context)!.settingsSystemMode)),
                 ),
               ),
 ////////////////////////////////////////////////////////////////////////////////
