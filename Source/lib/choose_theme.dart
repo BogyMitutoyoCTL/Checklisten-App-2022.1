@@ -14,9 +14,9 @@ class ChooseTheme extends StatefulWidget {
 }
 
 class _ChooseThemeState extends State<ChooseTheme> {
-  late SharedPreferences prefs;
-  var firststart = true;
-  var themewahl = 2;
+  // late SharedPreferences prefs;
+  // var firststart = true;
+  // var themewahl = 2;
 
   @override
   void initState() {
@@ -98,40 +98,42 @@ class _ChooseThemeState extends State<ChooseTheme> {
 
   void onPressed1() {
     setState(() {
-      themewahl = 0;
+      allData.themeWahl = 0;
     });
     saveFile();
   }
 
   void onPressed2() {
     setState(() {
-      themewahl = 1;
+      allData.themeWahl = 1;
     });
     saveFile();
   }
 
   void onPressed3() {
     setState(() {
-      themewahl = 2;
+      allData.themeWahl = 2;
     });
     saveFile();
   }
 
   void saveFile() async {
-    prefs = await SharedPreferences.getInstance();
-    bool? eintrag = prefs.getBool("firststart");
-    prefs.setInt('themewahl', themewahl);
-    if (eintrag == null) {
-      firststart = true;
-      prefs.setBool("firststart", false);
-    } else {
-      firststart = eintrag;
-    }
-    appState?.load();
-    if (firststart == true) {
+    allData.save();
+    appState?.updateTheme();
+    // prefs = await SharedPreferences.getInstance();
+    // bool? eintrag = prefs.getBool("firststart");
+    // prefs.setInt('themewahl', themewahl);
+    // if (eintrag == null) {
+    //   firststart = true;
+    //   prefs.setBool("firststart", false);
+    // } else {
+    //   firststart = eintrag;
+    // }
+    // appState?.load();
+    if (allData.firstStart) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Checklisten()));
-    } else if (firststart == false) {
+    } else {
       Navigator.of(context).pop();
     }
   }

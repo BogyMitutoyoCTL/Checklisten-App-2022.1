@@ -16,8 +16,8 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
-  late SharedPreferences prefs;
-  var firststart = true;
+  //late SharedPreferences prefs;
+  //var firststart = true;
 
   @override
   void initState() {
@@ -69,13 +69,12 @@ class _LanguageState extends State<Language> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              loadFile();
-              if (firststart == true) {
-                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
+              // loadFile();
+              saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
+              if (allData.firstStart) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => ChooseTheme()));
               } else {
-                saveLanguage(dropdownvalue == 'English' ? 'en' : 'de');
                 Navigator.of(context).pop();
               }
             },
@@ -87,17 +86,17 @@ class _LanguageState extends State<Language> {
     );
   }
 
-  void loadFile() async {
-    prefs = await SharedPreferences.getInstance();
-    bool? eintrag = prefs.getBool("firststart");
-    if (eintrag == null) {
-      firststart = true;
-
-      prefs.setBool("firststart", false);
-    } else {
-      firststart = eintrag;
-    }
-  }
+  // void loadFile() async {
+  //   prefs = await SharedPreferences.getInstance();
+  //   bool? eintrag = prefs.getBool("firststart");
+  //   if (eintrag == null) {
+  //     firststart = true;
+  //
+  //     prefs.setBool("firststart", false);
+  //   } else {
+  //     firststart = eintrag;
+  //   }
+  // }
 
   Future<bool> Meldung() async {
     var warnSignal = AlertButton();
@@ -118,7 +117,9 @@ class _LanguageState extends State<Language> {
   }
 
   saveLanguage(String code) async {
-    prefs = await SharedPreferences.getInstance();
-    prefs.setString('language', code);
+    allData.language = code;
+    allData.save();
+    // prefs = await SharedPreferences.getInstance();
+    // prefs.setString('language', code);
   }
 }

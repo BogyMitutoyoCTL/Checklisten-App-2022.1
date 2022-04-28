@@ -11,8 +11,8 @@ class AllData {
   String language = "en";
   List<Checkliste> checklistenliste = [];
 
-  Future<void> initInstance() async {
-    prefs = await SharedPreferences.getInstance();
+  void initInstance(SharedPreferences prefs) {
+    this.prefs = prefs;
   }
 
   void addNewChecklist(Checkliste checklist) {
@@ -40,36 +40,13 @@ class AllData {
   }
 
   Future<void> saveallchecklists() async {
-    await removeallchecklists();
-    var key = "key";
-    List<MapEntry<String, Checkliste>> zuordnung = [];
-    for (var counter = 0; counter < checklistenliste.length; counter++) {
-      zuordnung
-          .add(MapEntry(key + counter.toString(), checklistenliste[counter]));
-    }
-
-    for (MapEntry<String, Checkliste> pair in zuordnung) {
-      await saveASingleChecklist(pair.value, pair.key);
-    }
+    save();
   }
 
   Future<void> removeallchecklists() async {
     var keys = prefs.getKeys();
     for (var key in keys) {
       if (key.startsWith("key")) await prefs.remove(key);
-    }
-  }
-
-  Future<void> loadallchecklists() async {
-    checklistenliste = [];
-    var keys = prefs.getKeys();
-    for (var key in keys) {
-      if (key.startsWith("key")) {
-        Checkliste? loadSingleChecklist2 = await loadSingleChecklist(key);
-        if (loadSingleChecklist2 != null) {
-          checklistenliste.add(loadSingleChecklist2);
-        }
-      }
     }
   }
 
@@ -90,4 +67,8 @@ class AllData {
         language = json["language"],
         checklistenliste = List<Checkliste>.from(
             json["checklisten"].map((json) => Checkliste.fromJson(json)));
+
+  void save() {
+    prefs.setString("allData", jsonEncode(this));
+  }
 }

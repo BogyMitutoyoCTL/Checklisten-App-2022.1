@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:voodoolist/main.dart';
 
 import 'checklisten.dart';
 import 'coundown_timer.dart';
@@ -15,13 +16,13 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  late SharedPreferences prefs;
-  var firststart = true;
+  // late SharedPreferences prefs;
+  // var firststart = true;
 
   @override
   void initState() {
     super.initState();
-    loadFile();
+    // loadFile();
   }
 
   @override
@@ -65,24 +66,23 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   void exitSplashScreen() {
-    if (firststart == true) {
+    if (allData.firstStart) {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) => Language()));
-      firststart = false;
-    } else if (firststart == false) {
+    } else {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => Checklisten()));
     }
   }
 
-  void loadFile() async {
-    prefs = await SharedPreferences.getInstance();
-    bool? eintrag = prefs.getBool("firststart");
-    if (eintrag == null) {
-      firststart = true;
-      prefs.setBool("firststart", false);
-    } else {
-      firststart = eintrag;
-    }
-  }
+  // void loadFile() async {
+  //   prefs = await SharedPreferences.getInstance();
+  //   bool? eintrag = prefs.getBool("firststart");
+  //   if (eintrag == null) {
+  //     firststart = true;
+  //     prefs.setBool("firststart", false);
+  //   } else {
+  //     firststart = eintrag;
+  //   }
+  // }
 }

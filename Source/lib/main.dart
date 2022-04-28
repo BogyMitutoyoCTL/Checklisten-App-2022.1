@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,22 +11,28 @@ import 'checkliste.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  prefs = await SharedPreferences.getInstance();
+  allData.initInstance(prefs!);
   var myApp = MyApp();
   runApp(myApp);
 }
 
 Future<void> khj() async {
-  AllData allData = AllData();
-  await allData.initInstance();
-  await allData.loadallchecklists();
+  var prefs = await SharedPreferences.getInstance();
+  var allDataJson = prefs.getString("allData");
+  if (allDataJson == null) return;
+
+  AllData allData = AllData.fromJson(jsonDecode(allDataJson));
+  allData.initInstance(prefs);
   print(allData.checklistenliste);
   await allData.remove(allData.checklistenliste[0]);
   print(allData.checklistenliste);
 }
 
 Future<void> nameok() async {
+  var prefs = await SharedPreferences.getInstance();
   AllData allData = AllData();
-  await allData.initInstance();
+  allData.initInstance(prefs);
   await allData.removeallchecklists();
   var check = new Checkliste("namedercheckliste");
   check.addNewTask("element1");
@@ -46,12 +54,11 @@ class MyApp extends StatefulWidget {
 }
 
 _MyAppState? appState = null;
-AllData? allData = null;
+AllData allData = AllData();
+SharedPreferences? prefs;
 
 class _MyAppState extends State<MyApp> {
-  late SharedPreferences prefs;
-
-  var theme = 0;
+  //var theme = 0;
 
   List themes = [ThemeMode.dark, ThemeMode.light, ThemeMode.system];
 
@@ -65,7 +72,6 @@ class _MyAppState extends State<MyApp> {
 
   _MyAppState() {
     appState = this;
-    allData = AllData();
     load();
   }
 
@@ -114,26 +120,20 @@ class _MyAppState extends State<MyApp> {
       ),
       //////////////////////////////////////////////////////////////////////////
       home: Splashscreen(),
-      themeMode: themes[theme],
+      themeMode: themes[allData.themeWahl],
     );
   }
 
-  Future<void> loadChecklists() async {
-    await allData?.initInstance();
-    await allData?.loadallchecklists();
+  void load() async {
+    String? data = prefs?.getString("allData");
+    if (data != null) {
+      allData = AllData.fromJson(jsonDecode(data));
+      allData.initInstance(prefs!);
+    }
+    sprache = Locale(allData.language);
   }
 
-  void load() async {
-    prefs = await SharedPreferences.getInstance();
-    int? eintrag = prefs.getInt("themewahl");
-    theme = eintrag ?? 0;
-    String? _sprache = prefs.getString("language");
-    if (_sprache != null) {
-      setState(() {
-        sprache = Locale(_sprache);
-      });
-    }
+  void updateTheme() {
     setState(() {});
-    await loadChecklists();
   }
 }

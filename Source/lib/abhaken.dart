@@ -32,8 +32,8 @@ class _AbhakenState extends State<Abhaken> {
               heroTag: 'btn1',
               child: Icon(Icons.arrow_back, size: 40),
               elevation: 0,
-              onPressed: () async {
-                await save();
+              onPressed: () {
+                save();
                 Navigator.of(context).pop();
               },
             ),
@@ -45,7 +45,7 @@ class _AbhakenState extends State<Abhaken> {
               child: Icon(Icons.delete_forever, size: 40),
               elevation: 0,
               onPressed: () {
-                allData?.remove(widget.checkliste);
+                allData.remove(widget.checkliste);
                 Navigator.of(context).pop();
               },
             ),
@@ -68,7 +68,7 @@ class _AbhakenState extends State<Abhaken> {
     );
   }
 
-  Future<void> save() async {
-    await allData?.saveallchecklists();
+  void save() {
+    allData.save();
   }
 }
