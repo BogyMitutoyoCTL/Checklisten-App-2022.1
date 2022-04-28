@@ -24,7 +24,7 @@ class AllData {
   }
 
   Future<void> saveASingleChecklist(Checkliste checkliste, String key) async {
-    String checkliststring = jsonEncode(checkliste.toMap());
+    String checkliststring = jsonEncode(checkliste);
     await prefs.setString(key, checkliststring);
   }
 
@@ -32,8 +32,7 @@ class AllData {
     var json = await prefs.getString(key);
     if (json != null) {
       var map = jsonDecode(json);
-      var checklist = fromMapToChecklist(map);
-      return checklist;
+      return Checkliste.fromJson(map);
     }
     return null;
   }

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'aufgabe.dart';
 
 class Checkliste {
@@ -25,24 +23,12 @@ class Checkliste {
     }
   }
 
-  Map<String, List<String>> toMap() {
-    List<String> value = [];
-    for (var aufgaben in this.aufgaben_liste) {
-      value.add(jsonEncode(aufgaben));
-    }
-
-    return {this.titel: value};
-  }
-}
-
-Checkliste fromMapToChecklist(var map) {
-  var checkliste_name = map.keys.first;
-  var checkliste_eintraege = map[checkliste_name];
-
-  var checkliste = new Checkliste(checkliste_name);
-  for (String json in checkliste_eintraege) {
-    checkliste.addTask(Aufgabe.fromJson(jsonDecode(json)));
+  Map<String, dynamic> toJson() {
+    return {"titel": this.titel, "aufgaben": this.aufgaben_liste};
   }
 
-  return checkliste;
+  Checkliste.fromJson(Map<String, dynamic> json)
+      : titel = json["titel"],
+        aufgaben_liste = List<Aufgabe>.from(
+            json["aufgaben"].map((json) => Aufgabe.fromJson(json)));
 }
