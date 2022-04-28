@@ -6,12 +6,14 @@ import 'checkliste.dart';
 
 class AllData {
   late SharedPreferences prefs;
+  bool firstStart = true;
+  int themeWahl = 2;
+  String language = "en";
+  List<Checkliste> checklistenliste = [];
 
   Future<void> initInstance() async {
     prefs = await SharedPreferences.getInstance();
   }
-
-  List<Checkliste> checklistenliste = [];
 
   void addNewChecklist(Checkliste checklist) {
     checklistenliste.add(checklist);
@@ -70,4 +72,22 @@ class AllData {
       }
     }
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      "firstStart": firstStart,
+      "themeWahl": themeWahl,
+      "language": language,
+      "checklisten": checklistenliste,
+    };
+  }
+
+  AllData() {}
+
+  AllData.fromJson(Map<String, dynamic> json)
+      : firstStart = json["firstStart"],
+        themeWahl = json["themeWahl"],
+        language = json["language"],
+        checklistenliste = List<Checkliste>.from(
+            json["checklisten"].map((json) => Checkliste.fromJson(json)));
 }
