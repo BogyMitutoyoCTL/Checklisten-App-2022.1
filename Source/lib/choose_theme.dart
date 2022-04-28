@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/checklisten.dart';
 import 'package:voodoolist/main.dart';
 
@@ -14,15 +13,6 @@ class ChooseTheme extends StatefulWidget {
 }
 
 class _ChooseThemeState extends State<ChooseTheme> {
-  // late SharedPreferences prefs;
-  // var firststart = true;
-  // var themewahl = 2;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,16 +110,6 @@ class _ChooseThemeState extends State<ChooseTheme> {
   void saveFile() async {
     allData.save();
     appState?.updateTheme();
-    // prefs = await SharedPreferences.getInstance();
-    // bool? eintrag = prefs.getBool("firststart");
-    // prefs.setInt('themewahl', themewahl);
-    // if (eintrag == null) {
-    //   firststart = true;
-    //   prefs.setBool("firststart", false);
-    // } else {
-    //   firststart = eintrag;
-    // }
-    // appState?.load();
     if (allData.firstStart) {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => Checklisten()));

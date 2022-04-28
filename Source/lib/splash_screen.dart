@@ -1,7 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:voodoolist/main.dart';
 
 import 'checklisten.dart';
@@ -16,15 +14,6 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  // late SharedPreferences prefs;
-  // var firststart = true;
-
-  @override
-  void initState() {
-    super.initState();
-    // loadFile();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,15 +63,4 @@ class _SplashscreenState extends State<Splashscreen> {
           MaterialPageRoute(builder: (context) => Checklisten()));
     }
   }
-
-  // void loadFile() async {
-  //   prefs = await SharedPreferences.getInstance();
-  //   bool? eintrag = prefs.getBool("firststart");
-  //   if (eintrag == null) {
-  //     firststart = true;
-  //     prefs.setBool("firststart", false);
-  //   } else {
-  //     firststart = eintrag;
-  //   }
-  // }
 }

@@ -123,11 +123,10 @@ class _CreationState extends State<Creation> {
     });
   }
 
-  Future<void> save_and_navigate() async {
+  void save_and_navigate() {
     Checkliste checkliste = getChecklistFromInput();
-    allData?.addNewChecklist(checkliste);
-    await allData?.saveallchecklists;
+    allData.addNewChecklist(checkliste);
+    allData.save();
     Navigator.of(context).pop();
   }
 }
-//

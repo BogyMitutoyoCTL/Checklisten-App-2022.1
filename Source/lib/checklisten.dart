@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:voodoolist/abhaken.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'alert_klasse.dart';
-import 'checkliste.dart';
 import 'creation.dart';
 import 'main.dart';
 import 'settings_switch.dart';
@@ -15,14 +14,11 @@ class Checklisten extends StatefulWidget {
 }
 
 class _ChecklistenState extends State<Checklisten> {
-  var key = 'key';
   List<TextButton> Checklistenbutton = [];
-  List<Checkliste> checklistenliste = [];
 
   void buttoncreation() {
-    checklistenliste = allData!.checklistenliste;
     Checklistenbutton.clear();
-    for (var checkliste in checklistenliste) {
+    for (var checkliste in allData.checklistenliste) {
       var button = TextButton(
           onPressed: () {
             Navigator.of(context)
@@ -44,7 +40,6 @@ class _ChecklistenState extends State<Checklisten> {
     }
   }
 
-//
   @override
   Widget build(BuildContext context) {
     buttoncreation();

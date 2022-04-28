@@ -17,36 +17,18 @@ class AllData {
 
   void addNewChecklist(Checkliste checklist) {
     checklistenliste.add(checklist);
-    saveallchecklists();
-  }
-
-  Future<void> remove(Checkliste checklist) async {
-    checklistenliste.remove(checklist);
-    await saveallchecklists();
-  }
-
-  Future<void> saveASingleChecklist(Checkliste checkliste, String key) async {
-    String checkliststring = jsonEncode(checkliste);
-    await prefs.setString(key, checkliststring);
-  }
-
-  Future<Checkliste?> loadSingleChecklist(String key) async {
-    var json = await prefs.getString(key);
-    if (json != null) {
-      var map = jsonDecode(json);
-      return Checkliste.fromJson(map);
-    }
-    return null;
-  }
-
-  Future<void> saveallchecklists() async {
     save();
   }
 
-  Future<void> removeallchecklists() async {
+  void remove(Checkliste checklist) {
+    checklistenliste.remove(checklist);
+    save();
+  }
+
+  Future<void> clearAllSavedData() async {
     var keys = prefs.getKeys();
     for (var key in keys) {
-      if (key.startsWith("key")) await prefs.remove(key);
+      await prefs.remove(key);
     }
   }
 

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:voodoolist/checklisten.dart';
 import 'main.dart';
 
 import 'alert_klasse.dart';
 import 'choose_theme.dart';
-import 'settings_switch.dart';
 
 class Language extends StatefulWidget {
   const Language({Key? key}) : super(key: key);
@@ -16,15 +13,6 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
-  //late SharedPreferences prefs;
-  //var firststart = true;
-
-  @override
-  void initState() {
-    super.initState();
-    // loadFile();
-  }
-
   String dropdownvalue = 'English';
 
   // List of items in our dropdown menu
@@ -86,18 +74,6 @@ class _LanguageState extends State<Language> {
     );
   }
 
-  // void loadFile() async {
-  //   prefs = await SharedPreferences.getInstance();
-  //   bool? eintrag = prefs.getBool("firststart");
-  //   if (eintrag == null) {
-  //     firststart = true;
-  //
-  //     prefs.setBool("firststart", false);
-  //   } else {
-  //     firststart = eintrag;
-  //   }
-  // }
-
   Future<bool> Meldung() async {
     var warnSignal = AlertButton();
     return await warnSignal.beforeExit(context);
@@ -119,7 +95,5 @@ class _LanguageState extends State<Language> {
   saveLanguage(String code) async {
     allData.language = code;
     allData.save();
-    // prefs = await SharedPreferences.getInstance();
-    // prefs.setString('language', code);
   }
 }

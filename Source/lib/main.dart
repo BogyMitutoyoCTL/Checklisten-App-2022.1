@@ -25,7 +25,7 @@ Future<void> khj() async {
   AllData allData = AllData.fromJson(jsonDecode(allDataJson));
   allData.initInstance(prefs);
   print(allData.checklistenliste);
-  await allData.remove(allData.checklistenliste[0]);
+  allData.remove(allData.checklistenliste[0]);
   print(allData.checklistenliste);
 }
 
@@ -33,7 +33,7 @@ Future<void> nameok() async {
   var prefs = await SharedPreferences.getInstance();
   AllData allData = AllData();
   allData.initInstance(prefs);
-  await allData.removeallchecklists();
+  await allData.clearAllSavedData();
   var check = new Checkliste("namedercheckliste");
   check.addNewTask("element1");
   allData.addNewChecklist(check);
@@ -43,7 +43,7 @@ Future<void> nameok() async {
   var checki = new Checkliste("noname");
   check.addNewTask("neues element");
   allData.addNewChecklist(checki);
-  await allData.saveallchecklists();
+  allData.save();
 }
 
 class MyApp extends StatefulWidget {
