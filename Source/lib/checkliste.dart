@@ -41,10 +41,7 @@ Checkliste fromMapToChecklist(var map) {
 
   var checkliste = new Checkliste(checkliste_name);
   for (String json in checkliste_eintraege) {
-    var aufgabe = jsonDecode(json);
-    var fertig = aufgabe["fertig"];
-    var beschreibung = aufgabe["Element"];
-    checkliste.addTask(Aufgabe(fertig, beschreibung));
+    checkliste.addTask(Aufgabe.fromJson(jsonDecode(json)));
   }
 
   return checkliste;
