@@ -14,7 +14,6 @@ class Splashscreen extends StatefulWidget {
   State<Splashscreen> createState() => _SplashscreenState();
 }
 
-//neuester stand
 class _SplashscreenState extends State<Splashscreen> {
   late SharedPreferences prefs;
   var firststart = true;
